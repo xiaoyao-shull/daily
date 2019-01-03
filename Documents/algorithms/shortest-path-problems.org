@@ -47,7 +47,7 @@
      *begin*
          $S \leftarrow \emptyset, \bar S \leftarrow N$;
          $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
-         *d(s) \leftarrow \infty* for all $i \in N - \{ s \}$;
+         $d(s) \leftarrow \infty$ for all $i \in N - \{ s \}$;
          *while* $|S| < n$ *do*
          *begin*
              let $i \in \bar S$ be some node such that $d(i) = \mbox{min} \{ d(j) : j \in \bar S \}$;
@@ -76,17 +76,64 @@
    + Note that the node $k$ is not necessarily in a shortest path.
    + In fact the shortest path is $\min \{ d(i) + d'(i): i \in S \cup S' \}$.
    + As a proof, consider some shortest path $P$, whose length is $L$, from $s$ to $t$ that does not pass the node $k$.
-   + Suppose node $p$ is the first node not in $S$ along path $P$ and $q$ the last node not in $S'$.
-   + $d(p)$ and $d'(q)$ are optimal at this moment since they can be reached by nodes along some shortest path in $S$ and $S'$ respectively.
-   + $p \not \in S$ and $k \in S$ implies that $d(k) \le d(p)$, otherwise we won't choose $k$ from $\bar S$ before choosing $p$.
-   + Likewise, $q \not \in S'$ and $k \in S'$ implies that $d'(k) \le d'(q)$.
-   + We can enumerate over the existence of $p$ and $q$:
+   + Suppose that nodes $p$ and $q$ are respectively the first and the last node not in $S \cup S'$ along path $P$.
+   + $d(p)$ is optimal at the moment, since $p$ can be reached by some node in $S$.
+   + Likewise, $d'(q)$ is also optimal.
+   + $p \not \in S$ and $k \in S \implies d(k) \le d(p)$, otherwise we won't choose $k$ from $\bar S$ before choosing $p$.
+   + Likewise, $q \not \in S'$ and $k \in S' \implies d'(k) \le d'(q)$.
+   + Now we can enumerate over the existence of $p$ and $q$:
      - If $p$ and $q$ are different nodes, then $d(k) + d'(k) \le d(p) + d'(q) < L$, which is impossible.
-     - If $p$ and $q$ are the same node, then $d(k) + d'(k) \le d(p) + d'(q) = L$, while $d(k) + d'(k) \ge L$, we have $d(k) + d'(k) = L$.
-     - If both $p$ and $q$ do not exist, then $i \in S \cup S'$ for all $i \in P$.
-   + In any of the situations list above, the shortest path length can be determined by $\min \{ d(i) + d'(i): i \in S \cup S' \}$.
+     - If $p$ and $q$ are the same node, then $L \le d(k) + d'(k) \le d(p) + d'(q) = L$, which implies $d(k) + d'(k) = L$.
+     - If $p$ and $q$ do not exist, then $i \in S \cup S'$ for all $i \in P$, and $d(i) + d'(i) = L$.
 
-** TODO Optimization: Heap
+
+** Optimization: Heap
+   + We concern ourselves with the following operations of the heap data structure:
+     - $\mbox{create-heap}(H)$
+     - $\mbox{find-min}(H)$
+     - $\mbox{insert}(H, i)$
+     - $\mbox{decrease-key}(H, i, \Delta)$
+     - $\mbox{delete-min}(H)$
+   + For convenience, we represent the decrease-key operation as $\mbox{decrease-key}(H, i, i')$ where $i'$ is the updated value of $i$.
+   #+BEGIN_VERSE
+     *algorithm* Heap Dijkstra's;
+     *begin*
+         $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
+         $d(s) \leftarrow \infty$ for all $i \in N - \{ s \}$;
+         $\mbox{create-heap}(H)$;
+         $\mbox{insert}(H, s)$;
+         *while* $H \neq \emptyset$ *do*
+         *begin*
+             $i \leftarrow \mbox{find-min}(H)$;
+             $\mbox{delete-min}(H)$;
+             *for* each $(i, j) \in A(i)$ *do*
+                 *if* $d(j) > d(i) + c_{ij}$ *then*
+                     *if* $d(j) = \infty$ *then*
+                     *begin*
+                         $d(j) \leftarrow d(i) + c_{ij}$;
+                         $\mbox{pred}(j) \leftarrow i$;
+                         $\mbox{insert}(H, j)$;
+                     *end*
+                     *else*
+                     *begin*
+                         $d(j) \leftarrow d(i) + c_{ij}$;
+                         $\mbox{pred}(j) \leftarrow i$;
+                         $\mbox{decrease-key}(H, j, d(i) + c_{ij})$;
+                     *end*;
+         *end*;
+     *end*;
+   #+END_VERSE
+   + Different heap implementation gives different complexity:
+     |                       | Binary Heap        | Fibonacci Heap     |
+     |-----------------------+--------------------+--------------------|
+     | $\mbox{create-heap}$  | $\Theta(1)$        | $\Theta(1)$        |
+     | $\mbox{find-min}$     | $\Theta(n)$        | $O(n)$ (amortized) |
+     | $\mbox{insert}$       | $O(\log n)$        | $\Theta(1)$        |
+     | $\mbox{decrease-key}$ | $O(\log n)$        | $\Theta(1)$        |
+     | $\mbox{delete-min}$   | $\Theta(\log n)$   | $\Theta(1)$        |
+     |-----------------------+--------------------+--------------------|
+     | Complexity            | $O((m + n)\log n)$ | $O(m + n\log n)$   |
+
 ** TODO Optimization: Dial's Implementation
 
 * Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths

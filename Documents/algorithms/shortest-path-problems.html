@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-04 Fri 01:00 -->
+<!-- 2019-01-04 Fri 02:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Shortest Path Problems</title>
@@ -256,16 +256,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6b2887d">1. Single Source Shortest Path Problems in Directed Acyclic Networks</a></li>
-<li><a href="#org8edd3ea">2. Single Source Shortest Path Problems in Networks With No Negative Arc Length</a></li>
-<li><a href="#org891096b">3. Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths</a></li>
-<li><a href="#org6ca9ba6">4. All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths</a></li>
+<li><a href="#orgcc1b03b">1. Single Source Shortest Path Problems in Directed Acyclic Networks</a></li>
+<li><a href="#orgd84e836">2. Single Source Shortest Path Problems in Networks With No Negative Arc Length</a></li>
+<li><a href="#orgee50949">3. Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths</a></li>
+<li><a href="#org0e8224e">4. All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6b2887d" class="outline-2">
-<h2 id="org6b2887d"><span class="section-number-2">1</span> Single Source Shortest Path Problems in Directed Acyclic Networks</h2>
+<div id="outline-container-orgcc1b03b" class="outline-2">
+<h2 id="orgcc1b03b"><span class="section-number-2">1</span> Single Source Shortest Path Problems in Directed Acyclic Networks</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>A topological ordering of nodes is available for a directed acyclic network such that for any \((i, j) \in A\), \(i\) appears before \(j\) in the ordering.</li>
@@ -275,8 +275,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org53cd1d0" class="outline-3">
-<h3 id="org53cd1d0"><span class="section-number-3">1.1</span> The Pulling Algorithm</h3>
+<div id="outline-container-orga66fb88" class="outline-3">
+<h3 id="orga66fb88"><span class="section-number-3">1.1</span> The Pulling Algorithm</h3>
 <div class="outline-text-3" id="text-1-1">
 <p class="verse">
 <b>algorithm</b> Pulling;<br />
@@ -295,8 +295,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org6ecf995" class="outline-3">
-<h3 id="org6ecf995"><span class="section-number-3">1.2</span> The Reaching Algorithm</h3>
+<div id="outline-container-orge420abe" class="outline-3">
+<h3 id="orge420abe"><span class="section-number-3">1.2</span> The Reaching Algorithm</h3>
 <div class="outline-text-3" id="text-1-2">
 <p class="verse">
 <b>algorithm</b> Reaching;<br />
@@ -316,19 +316,19 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org8edd3ea" class="outline-2">
-<h2 id="org8edd3ea"><span class="section-number-2">2</span> Single Source Shortest Path Problems in Networks With No Negative Arc Length</h2>
+<div id="outline-container-orgd84e836" class="outline-2">
+<h2 id="orgd84e836"><span class="section-number-2">2</span> Single Source Shortest Path Problems in Networks With No Negative Arc Length</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org560b1cf" class="outline-3">
-<h3 id="org560b1cf"><span class="section-number-3">2.1</span> Dijkstra Algorithm</h3>
+<div id="outline-container-org6f49076" class="outline-3">
+<h3 id="org6f49076"><span class="section-number-3">2.1</span> Dijkstra Algorithm</h3>
 <div class="outline-text-3" id="text-2-1">
 <p class="verse">
 <b>algorithm</b> Dijkstra's;<br />
 <b>begin</b><br />
 &#xa0;&#xa0;&#xa0;&#xa0;\(S \leftarrow \emptyset, \bar S \leftarrow N\);<br />
 &#xa0;&#xa0;&#xa0;&#xa0;\(d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0\);<br />
-&#xa0;&#xa0;&#xa0;&#xa0;<b>d(s) &larr; &infin;</b> for all \(i \in N - \{ s \}\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;\(d(s) \leftarrow \infty\) for all \(i \in N - \{ s \}\);<br />
 &#xa0;&#xa0;&#xa0;&#xa0;<b>while</b> \(|S| < n\) <b>do</b><br />
 &#xa0;&#xa0;&#xa0;&#xa0;<b>begin</b><br />
 &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;let \(i \in \bar S\) be some node such that \(d(i) = \mbox{min} \{ d(j) : j \in \bar S \}\);<br />
@@ -351,8 +351,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgd59b5a6" class="outline-3">
-<h3 id="orgd59b5a6"><span class="section-number-3">2.2</span> Optimization: Bidiretional Search</h3>
+<div id="outline-container-orgb719fe4" class="outline-3">
+<h3 id="orgb719fe4"><span class="section-number-3">2.2</span> Optimization: Bidiretional Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>We perform two instances of Dijkstra's algorithm in parallel.</li>
@@ -364,68 +364,172 @@ for the JavaScript code in this tag.
 <li>Note that the node \(k\) is not necessarily in a shortest path.</li>
 <li>In fact the shortest path is \(\min \{ d(i) + d'(i): i \in S \cup S' \}\).</li>
 <li>As a proof, consider some shortest path \(P\), whose length is \(L\), from \(s\) to \(t\) that does not pass the node \(k\).</li>
-<li>Suppose node \(p\) is the first node not in \(S\) along path \(P\) and \(q\) the last node not in \(S'\).</li>
-<li>\(d(p)\) and \(d'(q)\) are optimal at this moment since they can be reached by nodes along some shortest path in \(S\) and \(S'\) respectively.</li>
-<li>\(p \not \in S\) and \(k \in S\) implies that \(d(k) \le d(p)\), otherwise we won't choose \(k\) from \(\bar S\) before choosing \(p\).</li>
-<li>Likewise, \(q \not \in S'\) and \(k \in S'\) implies that \(d'(k) \le d'(q)\).</li>
-<li>We can enumerate over the existence of \(p\) and \(q\):
+<li>Suppose that nodes \(p\) and \(q\) are respectively the first and the last node not in \(S \cup S'\) along path \(P\).</li>
+<li>\(d(p)\) is optimal at the moment, since \(p\) can be reached by some node in \(S\).</li>
+<li>Likewise, \(d'(q)\) is also optimal.</li>
+<li>\(p \not \in S\) and \(k \in S \implies d(k) \le d(p)\), otherwise we won't choose \(k\) from \(\bar S\) before choosing \(p\).</li>
+<li>Likewise, \(q \not \in S'\) and \(k \in S' \implies d'(k) \le d'(q)\).</li>
+<li>Now we can enumerate over the existence of \(p\) and \(q\):
 <ul class="org-ul">
 <li>If \(p\) and \(q\) are different nodes, then \(d(k) + d'(k) \le d(p) + d'(q) < L\), which is impossible.</li>
-<li>If \(p\) and \(q\) are the same node, then \(d(k) + d'(k) \le d(p) + d'(q) = L\), while \(d(k) + d'(k) \ge L\), we have \(d(k) + d'(k) = L\).</li>
-<li>If both \(p\) and \(q\) do not exist, then \(i \in S \cup S'\) for all \(i \in P\).</li>
+<li>If \(p\) and \(q\) are the same node, then \(L \le d(k) + d'(k) \le d(p) + d'(q) = L\), which implies \(d(k) + d'(k) = L\).</li>
+<li>If \(p\) and \(q\) do not exist, then \(i \in S \cup S'\) for all \(i \in P\), and \(d(i) + d'(i) = L\).</li>
 </ul></li>
-<li>In any of the situations list above, the shortest path length can be determined by \(\min \{ d(i) + d'(i): i \in S \cup S' \}\).</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org75ca028" class="outline-3">
-<h3 id="org75ca028"><span class="section-number-3">2.3</span> <span class="todo TODO">TODO</span> Optimization: Heap</h3>
-</div>
-<div id="outline-container-org71f373c" class="outline-3">
-<h3 id="org71f373c"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> Optimization: Dial's Implementation</h3>
+
+<div id="outline-container-org63be34c" class="outline-3">
+<h3 id="org63be34c"><span class="section-number-3">2.3</span> Optimization: Heap</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>We concern ourselves with the following operations of the heap data structure:
+<ul class="org-ul">
+<li>\(\mbox{create-heap}(H)\)</li>
+<li>\(\mbox{find-min}(H)\)</li>
+<li>\(\mbox{insert}(H, i)\)</li>
+<li>\(\mbox{decrease-key}(H, i, \Delta)\)</li>
+<li>\(\mbox{delete-min}(H)\)</li>
+</ul></li>
+<li>For convenience, we represent the decrease-key operation as \(\mbox{decrease-key}(H, i, i')\) where \(i'\) is the updated value of \(i\).</li>
+</ul>
+<p class="verse">
+<b>algorithm</b> Heap Dijkstra's;<br />
+<b>begin</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;\(d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;\(d(s) \leftarrow \infty\) for all \(i \in N - \{ s \}\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;\(\mbox{create-heap}(H)\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;\(\mbox{insert}(H, s)\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;<b>while</b> \(H \neq \emptyset\) <b>do</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;<b>begin</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(i \leftarrow \mbox{find-min}(H)\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(\mbox{delete-min}(H)\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>for</b> each \((i, j) \in A(i)\) <b>do</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>if</b> \(d(j) > d(i) + c_{ij}\) <b>then</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>if</b> \(d(j) = \infty\) <b>then</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>begin</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(d(j) \leftarrow d(i) + c_{ij}\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(\mbox{pred}(j) \leftarrow i\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(\mbox{insert}(H, j)\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>end</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>else</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>begin</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(d(j) \leftarrow d(i) + c_{ij}\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(\mbox{pred}(j) \leftarrow i\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(\mbox{decrease-key}(H, j, d(i) + c_{ij})\);<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>end</b>;<br />
+&#xa0;&#xa0;&#xa0;&#xa0;<b>end</b>;<br />
+<b>end</b>;<br />
+</p>
+<ul class="org-ul">
+<li><p>
+Different heap implementation gives different complexity:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Binary Heap</th>
+<th scope="col" class="org-left">Fibonacci Heap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(\mbox{create-heap}\)</td>
+<td class="org-left">\(\Theta(1)\)</td>
+<td class="org-left">\(\Theta(1)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\mbox{find-min}\)</td>
+<td class="org-left">\(\Theta(n)\)</td>
+<td class="org-left">\(O(n)\) (amortized)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\mbox{insert}\)</td>
+<td class="org-left">\(O(\log n)\)</td>
+<td class="org-left">\(\Theta(1)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\mbox{decrease-key}\)</td>
+<td class="org-left">\(O(\log n)\)</td>
+<td class="org-left">\(\Theta(1)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\mbox{delete-min}\)</td>
+<td class="org-left">\(\Theta(\log n)\)</td>
+<td class="org-left">\(\Theta(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Complexity</td>
+<td class="org-left">\(O((m + n)\log n)\)</td>
+<td class="org-left">\(O(m + n\log n)\)</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org891096b" class="outline-2">
-<h2 id="org891096b"><span class="section-number-2">3</span> Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths</h2>
+<div id="outline-container-org10ecc2a" class="outline-3">
+<h3 id="org10ecc2a"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> Optimization: Dial's Implementation</h3>
+</div>
+</div>
+
+<div id="outline-container-orgee50949" class="outline-2">
+<h2 id="orgee50949"><span class="section-number-2">3</span> Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org34db1fe" class="outline-3">
-<h3 id="org34db1fe"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> Optimality Condition</h3>
+<div id="outline-container-orgcdc51cc" class="outline-3">
+<h3 id="orgcdc51cc"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> Optimality Condition</h3>
 </div>
-<div id="outline-container-orgfedc620" class="outline-3">
-<h3 id="orgfedc620"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> Generic Label-Correcting Algorithm</h3>
+<div id="outline-container-org58b0aa2" class="outline-3">
+<h3 id="org58b0aa2"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> Generic Label-Correcting Algorithm</h3>
 </div>
-<div id="outline-container-orgcedfa0c" class="outline-3">
-<h3 id="orgcedfa0c"><span class="section-number-3">3.3</span> <span class="todo TODO">TODO</span> Modified Label-Correcting Algorithm</h3>
+<div id="outline-container-org8ae6f8c" class="outline-3">
+<h3 id="org8ae6f8c"><span class="section-number-3">3.3</span> <span class="todo TODO">TODO</span> Modified Label-Correcting Algorithm</h3>
 </div>
-<div id="outline-container-orgda836df" class="outline-3">
-<h3 id="orgda836df"><span class="section-number-3">3.4</span> <span class="todo TODO">TODO</span> Detecting Negative Cycles</h3>
+<div id="outline-container-org843f7f4" class="outline-3">
+<h3 id="org843f7f4"><span class="section-number-3">3.4</span> <span class="todo TODO">TODO</span> Detecting Negative Cycles</h3>
 </div>
 </div>
 
-<div id="outline-container-org6ca9ba6" class="outline-2">
-<h2 id="org6ca9ba6"><span class="section-number-2">4</span> All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths</h2>
+<div id="outline-container-org0e8224e" class="outline-2">
+<h2 id="org0e8224e"><span class="section-number-2">4</span> All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org3c7327b" class="outline-3">
-<h3 id="org3c7327b"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> Repeated Shortest Path Algorithm</h3>
+<div id="outline-container-org57669cb" class="outline-3">
+<h3 id="org57669cb"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> Repeated Shortest Path Algorithm</h3>
 </div>
-<div id="outline-container-org2dab567" class="outline-3">
-<h3 id="org2dab567"><span class="section-number-3">4.2</span> <span class="todo TODO">TODO</span> Generic Label-Correcting Algorithm</h3>
+<div id="outline-container-org2dc2337" class="outline-3">
+<h3 id="org2dc2337"><span class="section-number-3">4.2</span> <span class="todo TODO">TODO</span> Generic Label-Correcting Algorithm</h3>
 </div>
-<div id="outline-container-org3595785" class="outline-3">
-<h3 id="org3595785"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> Floyd-Warshall Algorithm</h3>
+<div id="outline-container-org5dbfa72" class="outline-3">
+<h3 id="org5dbfa72"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> Floyd-Warshall Algorithm</h3>
 </div>
-<div id="outline-container-orgea83784" class="outline-3">
-<h3 id="orgea83784"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> Detecting Negative Cycles</h3>
+<div id="outline-container-org4884b87" class="outline-3">
+<h3 id="org4884b87"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> Detecting Negative Cycles</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: xiaoyao</p>
-<p class="date">Created: 2019-01-04 Fri 01:00</p>
+<p class="date">Created: 2019-01-04 Fri 02:22</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
