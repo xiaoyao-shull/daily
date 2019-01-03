@@ -9,5 +9,5 @@
 
 # Algorithms
 
--   [Shortest Path Problems](./Documents/algorithms/shortest-path-problems.md)
+-   [Shortest Path Problems](./Documents/algorithms/shortest-path-problems.tex.md)
 
