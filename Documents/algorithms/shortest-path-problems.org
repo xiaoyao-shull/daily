@@ -1,0 +1,84 @@
+#+TITLE: Shortest Path Problems
+
+* Single Source Shortest Path Problems in Directed Acyclic Networks
+  + A topological ordering of nodes is available for a directed acyclic network such that for any $(i, j) \in A$, $i$ appears before $j$ in the ordering.
+  + Two similar algorithms based on this topological ordering can be established.
+  + The complexity is $O(m)$ for both algorithms, since each arc is examined exactly once in each execution.
+  + The reaching algorithm is prefered since we usually maintain the adjacent-list $A(i)$ for node $i \in N$.
+
+** The Pulling Algorithm
+   #+BEGIN_VERSE
+     *algorithm* Pulling;
+     *begin*
+         $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
+         $d(i) \leftarrow \infty$ for all $i \in N - \{ s \}$;
+         *for* each node $j \in N$ in topological ordering *do*
+             *for* all arc $(i, j), i \in N$ *do*
+                 *if* $d(j) > d(i) + c_{ij}$ *then*
+                 *begin*
+                     $d(j) \leftarrow d(i) + c_{ij}$;
+                     $\mbox{pred}(i) \leftarrow j$;
+                 *end*;
+     *end*;
+   #+END_VERSE
+
+** The Reaching Algorithm
+   #+BEGIN_VERSE
+     *algorithm* Reaching;
+     *begin*
+         $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
+         $d(i) \leftarrow \infty$ for all $i \in N - \{ s \}$;
+         *for* each node $i \in N$ in topological ordering *do*
+             *for* all arc $(i, j), j \in N$ *do*
+                 *if* $d(j) > d(i) + c_{ij}$ *then*
+                 *begin*
+                     $d(j) \leftarrow d(i) + c_{ij}$;
+                     $\mbox{pred}(i) \leftarrow j$;
+                 *end*;
+     *end*;
+   #+END_VERSE
+
+* Single Source Shortest Path Problems in Networks With No Negative Arc Length
+
+** Dijkstra Algorithm
+   #+BEGIN_VERSE
+     *algorithm* Dijkstra's;
+     *begin*
+         $S \leftarrow \emptyset, \bar S \leftarrow N$;
+         $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
+         *d(s) \leftarrow \infty* for all $i \in N - \{ s \}$;
+         *while* $|S| < n$ *do*
+         *begin*
+             let $i \in \bar S$ be some node such that $d(i) = \mbox{min} \{ d(j) : j \in \bar S \}$;
+             $S \leftarrow S \cup \{ i \}$;
+             $\bar S \leftarrow \bar S - \{ i \}$;
+             *for* each $(i, j) \in A(i)$ *do*
+                 *if* $d(j) > d(i) > c_{ij}$ *then*
+                 *begin*
+                     $d(j) \leftarrow d(i) + c_{ij}$;
+                     $\mbox{pred}(j) \leftarrow i$;
+                 *end*;
+         *end*;
+     *end*;
+   #+END_VERSE
+   + The node selecting operations cost $O(n^2)$.
+   + The distance updating operations cost $O(m)$.
+   + Since the upper bound of $m$ is $O(n^2)$, Dijkstra's algorithm runs in $O(n^2)$.
+
+** TODO Optimization: Bidiretional Search
+** TODO Optimization: Heap
+** TODO Optimization: Dial's Implementation
+
+* Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths
+
+** TODO Optimality Condition
+** TODO Generic Label-Correcting Algorithm
+** TODO Modified Label-Correcting Algorithm
+** TODO Detecting Negative Cycles
+
+* All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths
+
+** TODO Repeated Shortest Path Algorithm
+** TODO Generic Label-Correcting Algorithm
+** TODO Floyd-Warshall Algorithm
+** TODO Detecting Negative Cycles

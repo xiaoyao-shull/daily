@@ -1,1 +1,5 @@
 #+TITLE: daily
+
+
+* Algorithms
+  + [[./Documents/algorithms/shortest-path-problems.org][Shortest Path Problems]]
