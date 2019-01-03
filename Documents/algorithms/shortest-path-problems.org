@@ -1,3 +1,4 @@
+#+OPTIONS: toc:1
 #+TITLE: Shortest Path Problems
 
 * Single Source Shortest Path Problems in Directed Acyclic Networks
@@ -65,7 +66,26 @@
    + The distance updating operations cost $O(m)$.
    + Since the upper bound of $m$ is $O(n^2)$, Dijkstra's algorithm runs in $O(n^2)$.
 
-** TODO Optimization: Bidiretional Search
+** Optimization: Bidiretional Search
+   + We perform two instances of Dijkstra's algorithm in parallel.
+   + The forward one is as usual, we assign distance label $d(i)$ to node $i \in N$, and mutually divide nodes into $S$ and $\bar S$.
+   + The backward one treats the sink node $t$ as the source node, and an arc $(i, j) \in A$ as an arc $(j, i)$.
+   + The backward Dijkstra's algorithm assign distance label $d'(i)$ to node $i \in N$, and mutually divide nodes into $S'$ and $\bar{S'}$.
+   + How we altering between forward and backward Dijkstra's algorithms does not matter.
+   + The algorithm terminates when there exists a node $k$ such that $k \in S \cap S'$.
+   + Note that the node $k$ is not necessarily in a shortest path.
+   + In fact the shortest path is $\min \{ d(i) + d'(i): i \in S \cup S' \}$.
+   + As a proof, consider some shortest path $P$, whose length is $L$, from $s$ to $t$ that does not pass the node $k$.
+   + Suppose node $p$ is the first node not in $S$ along path $P$ and $q$ the last node not in $S'$.
+   + $d(p)$ and $d'(q)$ are optimal at this moment since they can be reached by nodes along some shortest path in $S$ and $S'$ respectively.
+   + $p \not \in S$ and $k \in S$ implies that $d(k) \le d(p)$, otherwise we won't choose $k$ from $\bar S$ before choosing $p$.
+   + Likewise, $q \not \in S'$ and $k \in S'$ implies that $d'(k) \le d'(q)$.
+   + We can enumerate over the existence of $p$ and $q$:
+     - If $p$ and $q$ are different nodes, then $d(k) + d'(k) \le d(p) + d'(q) < L$, which is impossible.
+     - If $p$ and $q$ are the same node, then $d(k) + d'(k) \le d(p) + d'(q) = L$, while $d(k) + d'(k) \ge L$, we have $d(k) + d'(k) = L$.
+     - If both $p$ and $q$ do not exist, then $i \in S \cup S'$ for all $i \in P$.
+   + In any of the situations list above, the shortest path length can be determined by $\min \{ d(i) + d'(i): i \in S \cup S' \}$.
+
 ** TODO Optimization: Heap
 ** TODO Optimization: Dial's Implementation
 
