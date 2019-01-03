@@ -1,5 +1,0 @@
-#+TITLE: daily
-
-
-* Algorithms
-  + [[./Documents/algorithms/shortest-path-problems.tex.org][Shortest Path Problems]]

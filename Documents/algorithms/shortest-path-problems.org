@@ -7,7 +7,7 @@
   + The reaching algorithm is prefered since we usually maintain the adjacent-list $A(i)$ for node $i \in N$.
 
 ** The Pulling Algorithm
-   #+BEGIN_QUOTE
+   #+BEGIN_VERSE
      *algorithm* Pulling;
      *begin*
          $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
@@ -20,10 +20,10 @@
                      $\mbox{pred}(i) \leftarrow j$;
                  *end*;
      *end*;
-   #+END_QUOTE
+   #+END_VERSE
 
 ** The Reaching Algorithm
-   #+BEGIN_QUOTE
+   #+BEGIN_VERSE
      *algorithm* Reaching;
      *begin*
          $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
@@ -36,12 +36,12 @@
                      $\mbox{pred}(i) \leftarrow j$;
                  *end*;
      *end*;
-   #+END_QUOTE
+   #+END_VERSE
 
 * Single Source Shortest Path Problems in Networks With No Negative Arc Length
 
 ** Dijkstra Algorithm
-   #+BEGIN_QUOTE
+   #+BEGIN_VERSE
      *algorithm* Dijkstra's;
      *begin*
          $S \leftarrow \emptyset, \bar S \leftarrow N$;
@@ -60,7 +60,7 @@
                  *end*;
          *end*;
      *end*;
-   #+END_QUOTE
+   #+END_VERSE
    + The node selecting operations cost $O(n^2)$.
    + The distance updating operations cost $O(m)$.
    + Since the upper bound of $m$ is $O(n^2)$, Dijkstra's algorithm runs in $O(n^2)$.
