@@ -108,22 +108,16 @@
              $\mbox{delete-min}(H)$;
              *for* each $(i, j) \in A(i)$ *do*
                  *if* $d(j) > d(i) + c_{ij}$ *then*
-                     *if* $d(j) = \infty$ *then*
-                     *begin*
-                         $d(j) \leftarrow d(i) + c_{ij}$;
-                         $\mbox{pred}(j) \leftarrow i$;
-                         $\mbox{insert}(H, j)$;
-                     *end*
-                     *else*
-                     *begin*
-                         $d(j) \leftarrow d(i) + c_{ij}$;
-                         $\mbox{pred}(j) \leftarrow i$;
-                         $\mbox{decrease-key}(H, j, d(i) + c_{ij})$;
-                     *end*;
+                 *begin*
+                     $d(j) \leftarrow d(i) + c_{ij}$;
+                     $\mbox{pred}(j) \leftarrow i$;
+                     *if* $d(j) = \infty$ *then* $\mbox{insert}(H, j)$;
+                     *else* $\mbox{decrease-key}(H, j, d(i) + c_{ij})$;
+                 *end*;
          *end*;
      *end*;
    #+END_VERSE
-   + Different heap implementation gives different complexity:
+   + Different heap implementations give different complexities:
      |                       | Binary Heap        | Fibonacci Heap     |
      |-----------------------+--------------------+--------------------|
      | $\mbox{create-heap}$  | $\Theta(1)$        | $\Theta(1)$        |
@@ -143,9 +137,64 @@
 
 * Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths
 
-** TODO Optimality Condition
-** TODO Generic Label-Correcting Algorithm
-** TODO Modified Label-Correcting Algorithm
+** Optimality Condition
+   + The distance label $d(\cdot)$ represent the shortest path length if and only if $d(j) \le d(i) + c_{ij}$ for all arc $(i, j) \in A$.
+   + This condition is necessary since otherwise there exists a path whose length is $d(i) + c_{ij}$, and $d(j)$ is not the shortest path length.
+   + This condition is sufficient, consider an arbitrary directed path $P$ from node $s$ to $i$, represented by $s = i_1 - i_2 - \cdots - i_k = i$.
+     $$
+     \displaylines{
+         d(i_k)       & \le    & d(i_{k - 1}) + c_{k - 1, k}\cr
+         d(i_{k - 1}) & \le    & d(i_{k - 2}) + c_{k - 2, k - 1}\cr
+                      & \vdots &\cr
+         d(i_2)       & \le    & d(i_1) + c_{12}
+     }
+     $$
+   + These inequities along with $d(i_1) = d(s) = 0$ imply $d(i) = d(i_k) \le c_{12} + c_{23} + \cdots + c_{n-1,n} = \sum_{(i, j)\in P} c_{ij}$.
+   + The length of any directed path from $s$ to $i$ is no more then $d(i)$, and by definition $d(i)$ equals the length of some directd path from $s$ to $i$, we know that $d(i)$ is the shortest path length.
+
+** Generic Label-Correcting Algorithm
+   #+BEGIN_VERSE
+   *algorithm* generic label-correcting;
+   *begin*
+       $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
+       $d(i) \leftarrow \infty$ for all $i \in N - \{ s \}$;
+       *while* there exists an arc $(i, j)$ such that $d(j) > d(i) + c_{ij}$ *do*
+       *begin*
+           $d(j) \leftarrow d(i) + c_{ij}$;
+           $pred(j) \leftarrow i$;
+       *end*;
+   *end*;
+   #+END_VERSE
+   + Correctness: the optimality condition is satisfied when the algorithm terminates.
+   + Finiteness: the distance label is either marked as infinite or falls in $[-C, C]$, and in each iteration we decrease some distance label.
+   + Complexity: $O(n^2C)$, considering number of times we decrease some distance label.
+
+** Modified Label-Correcting Algorithm
+   #+BEGIN_VERSE
+   *algorithm* modified label-correcting;
+   *begin*
+       $d(s) \leftarrow 0, \mbox{pred}(s) \leftarrow 0$;
+       $d(i) \leftarrow \infty$ for all $i \in N - \{ s \}$;
+       $\mbox{LIST} \leftarrow \{ s \}$
+       *while* $\mbox{LIST} \neq \emptyset$ *do*
+       *begin*
+           remove a node $i$ from $\mbox{LIST}$;
+           *for* each arc $(i, j) \in A$ *do*
+               *if* $d(j) > d(i) + c_{ij}$ *do*
+               *begin*
+                   $d(j) \leftarrow d(i) + c_{ij}$;
+                   $pred(j) \leftarrow i$;
+                   *if* $j \not\in \mbox{LIST}$ *then* add $j$ to $\mbox{LIST}$;
+               *end*;
+       *end*;
+   *end*;
+   #+END_VERSE
+   + Complexity: $O(mnC)$, considering number of times we add a node to $\mbox{LIST}$.
+
+** Modified Label-Correcting Algorithm Implementations
+*** TODO FIFO Implementation
+*** TODO Dequeue Implementation
+
 ** TODO Detecting Negative Cycles
 
 * All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths
