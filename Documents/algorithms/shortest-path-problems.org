@@ -132,9 +132,14 @@
      | $\mbox{decrease-key}$ | $O(\log n)$        | $\Theta(1)$        |
      | $\mbox{delete-min}$   | $\Theta(\log n)$   | $\Theta(1)$        |
      |-----------------------+--------------------+--------------------|
-     | Complexity            | $O((m + n)\log n)$ | $O(m + n\log n)$   |
+     | Dijkstra's Complexity | $O((m + n)\log n)$ | $O(m + n\log n)$   |
 
-** TODO Optimization: Dial's Implementation
+** Optimization: Dial's Implementation
+   + Dial's implementation avoids node selecting operations by using $(1 + nC)$ buckets to hold nodes when their distance labels are finite but not confirmed as optimal.
+   + Each bucket corresponds to a unique distance from the source node along some directed path.
+   + Nodes in each bucket are kept in doubly linked list, making adding/removing a node cost only $O(1)$.
+   + The number of buckets can be reduced to $(1 + C)$, since whenever we update $d(j)$ with $d(i) + c_{ij}$, the updated value falls in $[d(i), d(i) + C]$.
+   + The complexity of this implementation is $O(m + nC)$.
 
 * Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths
 
