@@ -1,0 +1,39 @@
+#+TITLE: Dijkstra's Shunting Yard Algorithm
++ For convenience, brackets are not considered as operators.
+#+BEGIN_VERSE
+*algorithm* Dijkstra's Shunting Yard Algorithm;
+*begin*
+    $\mbox{INPUT} \leftarrow$ list of input tokens;
+    $\mbox{STACK} \leftarrow$ an empty stack;
+    $\mbox{OUTPUT} \leftarrow$ an empty list;
+    $P\leftarrow$ a function maps operator to its precedence;
+    $A\leftarrow$ a function maps operator to its associativity;
+    *for* each token $t$ in $\mbox{INPUT}$ *do*
+    *begin*
+        *if* $t$ is an operand *then* $\mbox{append}(\mbox{OUTPUT}, t)$;
+        *if* $t$ is a function *then* $\mbox{push}(\mbox{STACK}, t)$;
+        *if* $t$ is a left bracket *then* $\mbox{push}(\mbox{STACK}, t)$;
+        *if* $t$ is a right bracket *then*
+        *begin*
+            *while* $\mbox{top}(\mbox{STACK})$ is not left bracket *do*
+            *begin*
+                $s \leftarrow \mbox{pop}(\mbox{STACK})$;
+                $\mbox{push}(OUTPUT, s)$;
+            *end*
+            $\mbox{pop}(\mbox{STACK})$;
+        *end*;
+        *if* $t$ is an operator *then*
+        *begin*
+            $s \leftarrow \mbox{top}(STACK)$;
+            *while* $s$ is not left bracket *and* ($s$ is a function
+                    *or* $\mbox{P}(s) > \mbox{P}(t)$
+                    *or* $\mbox{P}(s) = \mbox{P}(t)$ *and* $\mbox{A(s)} = \mbox{LEFT}$) *do*
+            *begin*
+                $\mbox{pop}(\mbox{STACK})$;
+                $\mbox{append}(\mbox{OUTPUT}, s)$;
+            *end*;
+            $\mbox{push}(\mbox{STACK}, t)$;
+        *end*;
+    *end*;
+*end*
+#+END_VERSE

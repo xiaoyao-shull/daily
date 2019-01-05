@@ -1,0 +1,4 @@
+#+TITLE: Algorithms
+
++ [[./shortest-path-problems.org][Shortest Path Problems]]
++ [[./dijkstra-shunting-yard.org][Dijkstra's Shunting Yard Algorithm]]
