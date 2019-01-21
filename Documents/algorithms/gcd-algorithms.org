@@ -5,7 +5,7 @@
 #+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
 #+HTML_HEAD: <script src="../../static/js/script.js"></script>
 
-* Euclidean algorithm
+* Euclidean Algorithm
   + Based on $\mbox{gcd}(a, b) = \mbox{gcd}(b, a\!\!\mod b)$.
   #+BEGIN_VERSE
     *algorithm* Euclidean;
@@ -20,7 +20,7 @@
     *end*;
   #+END_VERSE
 
-* Stein Algorithm
+* Stein's Algorithm
   #+BEGIN_VERSE
     *algorithm* Stein's;
     *begin*
