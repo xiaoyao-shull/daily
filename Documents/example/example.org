@@ -1,0 +1,157 @@
+#+TITLE: Article Title
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script-homepage.js"></script>
+
+* Stylying Effect
+** Table
+   See table below. See table below. See table below. See table below. See table below. See table below. See table below. See table below.
+   See table below. See table below. See table below. See table below. See table below. See table below. See table below. See table below.
+   #+CAPTION: Table Caption
+   | Head 1   | Head 2   | Head 3   | Head 4   |
+   |----------+----------+----------+----------|
+   | Cell 1-1 | Cell 1-2 | Cell 1-3 | Cell 1-4 |
+   | Cell 2-1 | Cell 2-2 | Cell 2-3 | Cell 2-4 |
+   | Cell 3-1 | Cell 3-2 | Cell 3-3 | Cell 3-4 |
+   | Cell 4-1 | Cell 4-2 | Cell 4-3 | Cell 4-4 |
+   See table above. See table above. See table above. See table above. See table above. See table above. See table above. See table above.
+   See table above. See table above. See table above. See table above. See table above. See table above. See table above. See table above.
+** Text
+*** Single Text Styles
+    + Some lines are _underlined_
+    + Some lines are *bold*
+    + Some lines are /italic/
+    + Some lines are ~source~ =code=
+    + Some lines are +struck through+
+    + Some lines are [[http://www.google.com][links]].
+*** Paragraph Effect
+    some lines are _underlinesd_, Some lines are *bold*, some lines are /italic/, some lines are ~source~ =code=, some lines are +struck through+, some lines are [[http://www.google.com][links]].
+    some lines are _underlinesd_, Some lines are *bold*, some lines are /italic/, some lines are ~source~ =code=, some lines are +struck through+, some lines are [[http://www.google.com][links]].
+    some lines are _underlinesd_, Some lines are *bold*, some lines are /italic/, some lines are ~source~ =code=, some lines are +struck through+, some lines are [[http://www.google.com][links]].
+    some lines are _underlinesd_, Some lines are *bold*, some lines are /italic/, some lines are ~source~ =code=, some lines are +struck through+, some lines are [[http://www.google.com][links]].
+    some lines are _underlinesd_, Some lines are *bold*, some lines are /italic/, some lines are ~source~ =code=, some lines are +struck through+, some lines are [[http://www.google.com][links]].
+
+    some lines are _underlinesd_, Some lines are *bold*, some lines are /italic/, some lines are ~source~ =code=, some lines are +struck through+, some lines are [[http://www.google.com][links]].
+    some lines are _underlinesd_, Some lines are *bold*, some lines are /italic/, some lines are ~source~ =code=, some lines are +struck through+, some lines are [[http://www.google.com][links]].
+*** Mixed Text Styles
+    + Lines are */italic in bold/*, compare: *bold* and /italic/.
+    + Lines are /*bold in italic*/, compare: *bold* and /italic/.
+    + Lines are *_underlined in bold_*, compare: *bold* and _underlined_.
+    + Lines are _*bold in underlined*_, compare: *bold* and _underlined_.
+    + Lines are *=source code in bold=*, compare: *bold* and =source code=.
+    + Lines are =*bold in source bold*=, compare: *bold* and =source code=.
+    + Lines are +*bold in struck through*+, compare: *bold* and +struck through+.
+    + Lines are *+struck through in bold+*, compare: *bold* and +struck through+.
+    + Lines are [[http://www.google.com][*bold in links*]], compare: *bold* and [[http://www.google.com][links]].
+    + Lines are *[[http://www.google.com][links in bold]]*, compare: *bold* and [[http://www.google.com][links]].
+    + Lines are =/italic in source code/=, compare: /italic/ and =source code=.
+    + Lines are /=source code in italic=/, compare: /italic/ and =source code=.
+    + Lines are _/italic in underlined/_, compare: /italic/ and _underlined_.
+    + Lines are /_underlined in italic_/, compare: /italic/ and _underlined_.
+    + Lines are +/italic in struck through/+, compare: /italic/ and +struck through+.
+    + Lines are /+struck through in italic+/, compare: /italic/ and +struck through+.
+    + Lines are [[http://www.google.com][/italic in links/]], compare: /italic/ and [[http://www.google.com][links]].
+    + Lines are /[[http://www.google.com][links in italic]]/, compare: /italic/ and [[http://www.google.com][links]].
+    + Lines are =_underlined in source code_=, compare: _underlined_ and =source code=.
+    + Lines are _=source code in underlined=_, compare: _underlined_ and =source code=.
+    + Lines are [[http://www.google.com][_underlined in links_]], compare: _underlined_ and [[http://www.google.com][links]].
+    + Lines are _[[http://www.google.com][links in underlined]]_, compare: _underlined_ and [[http://www.google.com][links]].
+    + Lines are +=source code in struck through=+, compare: +struck through+ and =source code=.
+    + Lines are =+struck through in source code+=, compare: +struck through+ and =source code=.
+    + Lines are [[http://www.google.com][=source code in links=]], compare: =source code= and _links_.
+    + Lines are =[[http://www.google.com][links in source code]]=, compare: =source code= and _links_.
+    + Lines are +[[http://www.google.com][links in struck through]]+, compare: +struck through+ and [[http://www.google.com][links]].
+    + Lines are [[http://www.google.com][+struck through in links+]], compare: +struck through+ and [[http://www.google.com][links]].
+#    + Some lines are +_underlined in struck through_+, compared with just +struck through+ and _underlined_. # We won't have this in pages.
+#    + Some lines are _+struck through in underlined+_, compared with just +struck through+ and _underlined_. # We won't have this in pages.
+** Image
+   See image below. See image below. See image below. See image below. See image below. See image below. See image below. See image below.
+   See image below. See image below. See image below. See image below. See image below. See image below. See image below. See image below.
+
+   #+CAPTION: Image Caption
+   [[../../static/img/example.jpg]]
+
+   See image above. See image above. See image above. See image above. See image above. See image above. See image above. See image above.
+   See image above. See image above. See image above. See image above. See image above. See image above. See image above. See image above.
+** Source
+   #+BEGIN_SRC java -n
+     public class SelectionRequest
+     {
+         static public final int REGISTER = 1;
+         static public final int CHANGEOP = 1;
+
+         static public final int READ    = SelectionKey.OP_READ;
+         static public final int WRITE   = SelectionKey.OP_WRITE;
+         static public final int ACCEPT  = SelectionKey.OP_ACCEPT;
+         static public final int CONNECT = SelectionKey.OP_CONNECT;
+
+         public SelectableChannel channel;
+         public int type;
+         public int mask;
+
+         public SelectionRequest(SelectableChannel channel, int type, int mask)
+         {
+             this.channel = channel;
+             this.type = type;
+             this.mask = mask;
+         }
+     }
+   #+END_SRC
+** Lists
+*** Ordered Lists
+    1. Ordered List Level 1
+    2. Ordered List Level 1
+    3. Ordered List Level 1
+       1) Ordered List Level 2
+       2) Ordered List Level 2
+       3) Ordered List Level 2
+          1. Ordered List Level 3
+          2. Ordered List Level 3
+          3. Ordered List Level 3
+*** Unordered Lists
+    + Unordered List Level 1
+    + Unordered List Level 1
+    + Unordered List Level 1
+      - Unordered List Level 2
+      - Unordered List Level 2
+      - Unordered List Level 2
+        * Unordered List Level 3
+        * Unordered List Level 3
+        * Unordered List Level 3
+** Schedule
+*** Timestamps
+    + [2014-03-07 Fri]
+    + <2014-03-07 Fri>
+*** TODO Scheduled Task
+    SCHEDULED: <2014-03-07 Fri>
+*** TODO Deadline Task
+    DEADLINE: <2014-03-07 Fri>
+*** DONE Closed Task
+    CLOSED: [2014-03-07 Fri 10:00]
+** Tags
+*** Priorities                                                        :A:B:C:
+    Text in right position. Text in right position. Text in right position. Text in right position.
+    Text in right position. Text in right position. Text in right position. Text in right position.
+*** Names                                                :Obama:Bush:Clinton:
+    Text in right position. Text in right position. Text in right position. Text in right position.
+    Text in right position. Text in right position. Text in right position. Text in right position.
+*** Places                                                     :Room:Outside:
+    Text in right position. Text in right position. Text in right position. Text in right position.
+    Text in right position. Text in right position. Text in right position. Text in right position.
+** Checks [1/2] [50%]
+*** DONE Finished [3/3] [100%]
+    + [X] Item 1.
+    + [X] Item 2.
+    + [X] Item 3.
+*** TODO In progress [2/3] [66%]
+    + [X] Item 1.
+    + [X] Item 2.
+    + [ ] Item 3.
+** Footnote​s
+   + See also [fn:1].
+   + See also [fn:2].
+
+[fn:1] Text as footnote
+[fn:2] [[http://www.google.com][Link as footnote]]

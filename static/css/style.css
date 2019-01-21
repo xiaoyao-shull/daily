@@ -1,17 +1,19 @@
 body {
-    width: 960px;
+    width: 90%;
     margin: 50px auto;
     color: white;
     background-color: darkgray;
     font-family: monospace;
-    line-height: 1.3em;
+    line-height: 1.2em;
+    font-size: 18px;
+    font-family: 'Handlee', cursive;
 }
 /* Blackboard Style Background */
-#content        { padding: 0 40px; background: url(../img/blackboard.png) repeat-y -960px 0; }
-#content-top    { margin-left: -40px; width: 960px; height: 48px; background: url(../img/blackboard.png) no-repeat 0 0; }
-#content-bottom { margin-left: -40px; width: 960px; height: 48px; background: url(../img/blackboard.png) no-repeat -1920px 100%; }
+#content        { padding: 0 40px; background-color: #204030; border: 16px solid #B48A36; border-radius: 12px; }
+#content-top    { margin-left: -40px; width: 960px; height: 48px; }
+#content-bottom { margin-left: -40px; width: 960px; height: 48px; }
 /* Section Headings */
-h1 { margin-top: 1em; margin-bottom: 0.5em; font-size: xx-large; text-align: center; }
+h1 { margin-top: 1em; margin-bottom: 0.5em; font-size: xx-large; text-align: center; padding-bottom: 40px; }
 h2 { margin-top: 1em; margin-bottom: 0.5em; font-size: x-large; }
 h3 { margin-top: 1em; margin-bottom: 0.5em; font-size: larger; }
 h4 { margin-top: 1em; margin-bottom: 0.5em; font-size: large; }
@@ -46,7 +48,7 @@ a, a:visited { color: #3ACAFF; text-decoration: none; }
 a:hover { font-weight: bold; }
 a:active { position: relative; bottom: -3px; }
 /* Text */
-b { font-weight: bold; color: #FF7890; }
+b { font-weight: bold; color: #FFF555; }
 i { color: #B36EFF;font-style: italic; }
 code { color: #FFF555; }
 del { text-decoration: none; border-bottom: 2px solid #AAAAAA; line-height: 0; display: inline-block; color: #AAAAAA; }

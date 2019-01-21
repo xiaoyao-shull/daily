@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-01-21 Mon 15:08 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Article Title</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="xiaoyao" />
+<link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+<script src="../../static/js/jquery.js"></script>
+<script src="../../static/js/script-homepage.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Article Title</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8e6463b">1. Stylying Effect</a>
+<ul>
+<li><a href="#org853287f">1.1. Table</a></li>
+<li><a href="#orgd8aadb8">1.2. Text</a>
+<ul>
+<li><a href="#orgfeb64ce">1.2.1. Single Text Styles</a></li>
+<li><a href="#org1b9be50">1.2.2. Paragraph Effect</a></li>
+<li><a href="#org9f0fb54">1.2.3. Mixed Text Styles</a></li>
+</ul>
+</li>
+<li><a href="#org56acbe7">1.3. Image</a></li>
+<li><a href="#orgacf4fca">1.4. Source</a></li>
+<li><a href="#org80a70d8">1.5. Lists</a>
+<ul>
+<li><a href="#orgd7893c3">1.5.1. Ordered Lists</a></li>
+<li><a href="#org33a373b">1.5.2. Unordered Lists</a></li>
+</ul>
+</li>
+<li><a href="#org3ca0c24">1.6. Schedule</a>
+<ul>
+<li><a href="#org2b257a1">1.6.1. Timestamps</a></li>
+<li><a href="#orgc5a5a76">1.6.2. <span class="todo TODO">TODO</span> Scheduled Task</a></li>
+<li><a href="#orga2890cf">1.6.3. <span class="todo TODO">TODO</span> Deadline Task</a></li>
+<li><a href="#org1fe82e4">1.6.4. <span class="done DONE">DONE</span> Closed Task</a></li>
+</ul>
+</li>
+<li><a href="#orgfe026e6">1.7. Tags</a>
+<ul>
+<li><a href="#orga3ccfdb">1.7.1. Priorities&#xa0;&#xa0;&#xa0;<span class="tag"><span class="A">A</span>&#xa0;<span class="B">B</span>&#xa0;<span class="C">C</span></span></a></li>
+<li><a href="#org8739417">1.7.2. Names&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Obama">Obama</span>&#xa0;<span class="Bush">Bush</span>&#xa0;<span class="Clinton">Clinton</span></span></a></li>
+<li><a href="#orgc96747b">1.7.3. Places&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Room">Room</span>&#xa0;<span class="Outside">Outside</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org6677a8a">1.8. Checks <code>[1/2]</code> <code>[50%]</code></a>
+<ul>
+<li><a href="#org0ec3c98">1.8.1. <span class="done DONE">DONE</span> Finished <code>[3/3]</code> <code>[100%]</code></a></li>
+<li><a href="#org22cb0cc">1.8.2. <span class="todo TODO">TODO</span> In progress <code>[2/3]</code> <code>[66%]</code></a></li>
+</ul>
+</li>
+<li><a href="#org9a69f8d">1.9. Footnote​s</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8e6463b" class="outline-2">
+<h2 id="org8e6463b"><span class="section-number-2">1</span> Stylying Effect</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org853287f" class="outline-3">
+<h3 id="org853287f"><span class="section-number-3">1.1</span> Table</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+See table below. See table below. See table below. See table below. See table below. See table below. See table below. See table below.
+See table below. See table below. See table below. See table below. See table below. See table below. See table below. See table below.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Table Caption</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Head 1</th>
+<th scope="col" class="org-left">Head 2</th>
+<th scope="col" class="org-left">Head 3</th>
+<th scope="col" class="org-left">Head 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Cell 1-1</td>
+<td class="org-left">Cell 1-2</td>
+<td class="org-left">Cell 1-3</td>
+<td class="org-left">Cell 1-4</td>
+</tr>
+
+<tr>
+<td class="org-left">Cell 2-1</td>
+<td class="org-left">Cell 2-2</td>
+<td class="org-left">Cell 2-3</td>
+<td class="org-left">Cell 2-4</td>
+</tr>
+
+<tr>
+<td class="org-left">Cell 3-1</td>
+<td class="org-left">Cell 3-2</td>
+<td class="org-left">Cell 3-3</td>
+<td class="org-left">Cell 3-4</td>
+</tr>
+
+<tr>
+<td class="org-left">Cell 4-1</td>
+<td class="org-left">Cell 4-2</td>
+<td class="org-left">Cell 4-3</td>
+<td class="org-left">Cell 4-4</td>
+</tr>
+</tbody>
+</table>
+<p>
+See table above. See table above. See table above. See table above. See table above. See table above. See table above. See table above.
+See table above. See table above. See table above. See table above. See table above. See table above. See table above. See table above.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd8aadb8" class="outline-3">
+<h3 id="orgd8aadb8"><span class="section-number-3">1.2</span> Text</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgfeb64ce" class="outline-4">
+<h4 id="orgfeb64ce"><span class="section-number-4">1.2.1</span> Single Text Styles</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>Some lines are <span class="underline">underlined</span></li>
+<li>Some lines are <b>bold</b></li>
+<li>Some lines are <i>italic</i></li>
+<li>Some lines are <code>source</code> <code>code</code></li>
+<li>Some lines are <del>struck through</del></li>
+<li>Some lines are <a href="http://www.google.com/">links</a>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1b9be50" class="outline-4">
+<h4 id="org1b9be50"><span class="section-number-4">1.2.2</span> Paragraph Effect</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+some lines are <span class="underline">underlinesd</span>, Some lines are <b>bold</b>, some lines are <i>italic</i>, some lines are <code>source</code> <code>code</code>, some lines are <del>struck through</del>, some lines are <a href="http://www.google.com/">links</a>.
+some lines are <span class="underline">underlinesd</span>, Some lines are <b>bold</b>, some lines are <i>italic</i>, some lines are <code>source</code> <code>code</code>, some lines are <del>struck through</del>, some lines are <a href="http://www.google.com/">links</a>.
+some lines are <span class="underline">underlinesd</span>, Some lines are <b>bold</b>, some lines are <i>italic</i>, some lines are <code>source</code> <code>code</code>, some lines are <del>struck through</del>, some lines are <a href="http://www.google.com/">links</a>.
+some lines are <span class="underline">underlinesd</span>, Some lines are <b>bold</b>, some lines are <i>italic</i>, some lines are <code>source</code> <code>code</code>, some lines are <del>struck through</del>, some lines are <a href="http://www.google.com/">links</a>.
+some lines are <span class="underline">underlinesd</span>, Some lines are <b>bold</b>, some lines are <i>italic</i>, some lines are <code>source</code> <code>code</code>, some lines are <del>struck through</del>, some lines are <a href="http://www.google.com/">links</a>.
+</p>
+
+<p>
+some lines are <span class="underline">underlinesd</span>, Some lines are <b>bold</b>, some lines are <i>italic</i>, some lines are <code>source</code> <code>code</code>, some lines are <del>struck through</del>, some lines are <a href="http://www.google.com/">links</a>.
+some lines are <span class="underline">underlinesd</span>, Some lines are <b>bold</b>, some lines are <i>italic</i>, some lines are <code>source</code> <code>code</code>, some lines are <del>struck through</del>, some lines are <a href="http://www.google.com/">links</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org9f0fb54" class="outline-4">
+<h4 id="org9f0fb54"><span class="section-number-4">1.2.3</span> Mixed Text Styles</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li>Lines are <b><i>italic in bold</i></b>, compare: <b>bold</b> and <i>italic</i>.</li>
+<li>Lines are <i><b>bold in italic</b></i>, compare: <b>bold</b> and <i>italic</i>.</li>
+<li>Lines are <b><span class="underline">underlined in bold</span></b>, compare: <b>bold</b> and <span class="underline">underlined</span>.</li>
+<li>Lines are <span class="underline"><b>bold in underlined</b></span>, compare: <b>bold</b> and <span class="underline">underlined</span>.</li>
+<li>Lines are <b><code>source code in bold</code></b>, compare: <b>bold</b> and <code>source code</code>.</li>
+<li>Lines are <code>*bold in source bold*</code>, compare: <b>bold</b> and <code>source code</code>.</li>
+<li>Lines are <del><b>bold in struck through</b></del>, compare: <b>bold</b> and <del>struck through</del>.</li>
+<li>Lines are <b><del>struck through in bold</del></b>, compare: <b>bold</b> and <del>struck through</del>.</li>
+<li>Lines are <a href="http://www.google.com/"><b>bold in links</b></a>, compare: <b>bold</b> and <a href="http://www.google.com/">links</a>.</li>
+<li>Lines are <b><a href="http://www.google.com/">links in bold</a></b>, compare: <b>bold</b> and <a href="http://www.google.com/">links</a>.</li>
+<li>Lines are <code>/italic in source code/</code>, compare: <i>italic</i> and <code>source code</code>.</li>
+<li>Lines are <i><code>source code in italic</code></i>, compare: <i>italic</i> and <code>source code</code>.</li>
+<li>Lines are <span class="underline"><i>italic in underlined</i></span>, compare: <i>italic</i> and <span class="underline">underlined</span>.</li>
+<li>Lines are <i><span class="underline">underlined in italic</span></i>, compare: <i>italic</i> and <span class="underline">underlined</span>.</li>
+<li>Lines are <del><i>italic in struck through</i></del>, compare: <i>italic</i> and <del>struck through</del>.</li>
+<li>Lines are <i><del>struck through in italic</del></i>, compare: <i>italic</i> and <del>struck through</del>.</li>
+<li>Lines are <a href="http://www.google.com/"><i>italic in links</i></a>, compare: <i>italic</i> and <a href="http://www.google.com/">links</a>.</li>
+<li>Lines are <i><a href="http://www.google.com/">links in italic</a></i>, compare: <i>italic</i> and <a href="http://www.google.com/">links</a>.</li>
+<li>Lines are <code>_underlined in source code_</code>, compare: <span class="underline">underlined</span> and <code>source code</code>.</li>
+<li>Lines are <span class="underline"><code>source code in underlined</code></span>, compare: <span class="underline">underlined</span> and <code>source code</code>.</li>
+<li>Lines are <a href="http://www.google.com/"><span class="underline">underlined in links</span></a>, compare: <span class="underline">underlined</span> and <a href="http://www.google.com/">links</a>.</li>
+<li>Lines are <span class="underline"><a href="http://www.google.com/">links in underlined</a></span>, compare: <span class="underline">underlined</span> and <a href="http://www.google.com/">links</a>.</li>
+<li>Lines are <del><code>source code in struck through</code></del>, compare: <del>struck through</del> and <code>source code</code>.</li>
+<li>Lines are <code>+struck through in source code+</code>, compare: <del>struck through</del> and <code>source code</code>.</li>
+<li>Lines are <a href="http://www.google.com/"><code>source code in links</code></a>, compare: <code>source code</code> and <span class="underline">links</span>.</li>
+<li>Lines are <code>[[http://www.google.com][links in source code]]</code>, compare: <code>source code</code> and <span class="underline">links</span>.</li>
+<li>Lines are <del><a href="http://www.google.com/">links in struck through</a></del>, compare: <del>struck through</del> and <a href="http://www.google.com/">links</a>.</li>
+<li>Lines are <a href="http://www.google.com/"><del>struck through in links</del></a>, compare: <del>struck through</del> and <a href="http://www.google.com/">links</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org56acbe7" class="outline-3">
+<h3 id="org56acbe7"><span class="section-number-3">1.3</span> Image</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+See image below. See image below. See image below. See image below. See image below. See image below. See image below. See image below.
+See image below. See image below. See image below. See image below. See image below. See image below. See image below. See image below.
+</p>
+
+
+<div class="figure">
+<p><img src="../../static/img/example.jpg" alt="example.jpg" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Image Caption</p>
+</div>
+
+<p>
+See image above. See image above. See image above. See image above. See image above. See image above. See image above. See image above.
+See image above. See image above. See image above. See image above. See image above. See image above. See image above. See image above.
+</p>
+</div>
+</div>
+<div id="outline-container-orgacf4fca" class="outline-3">
+<h3 id="orgacf4fca"><span class="section-number-3">1.4</span> Source</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">SelectionRequest</span>
+<span class="linenr"> 2: </span><span style="color: #4f97d7;">{</span>
+<span class="linenr"> 3: </span>    <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">final</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">REGISTER</span> = <span style="color: #a45bad;">1</span>;
+<span class="linenr"> 4: </span>    <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">final</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">CHANGEOP</span> = <span style="color: #a45bad;">1</span>;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>    <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">final</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">READ</span>    = <span style="color: #a45bad;">SelectionKey</span>.OP_READ;
+<span class="linenr"> 7: </span>    <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">final</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">WRITE</span>   = <span style="color: #a45bad;">SelectionKey</span>.OP_WRITE;
+<span class="linenr"> 8: </span>    <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">final</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">ACCEPT</span>  = <span style="color: #a45bad;">SelectionKey</span>.OP_ACCEPT;
+<span class="linenr"> 9: </span>    <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">final</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">CONNECT</span> = <span style="color: #a45bad;">SelectionKey</span>.OP_CONNECT;
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">SelectableChannel</span> <span style="color: #7590db;">channel</span>;
+<span class="linenr">12: </span>    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">type</span>;
+<span class="linenr">13: </span>    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">mask</span>;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">SelectionRequest</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">SelectableChannel</span> <span style="color: #7590db;">channel</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">type</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">mask</span><span style="color: #bc6ec5;">)</span>
+<span class="linenr">16: </span>    <span style="color: #bc6ec5;">{</span>
+<span class="linenr">17: </span>        <span style="color: #4f97d7; font-weight: bold;">this</span>.channel = channel;
+<span class="linenr">18: </span>        <span style="color: #4f97d7; font-weight: bold;">this</span>.type = type;
+<span class="linenr">19: </span>        <span style="color: #4f97d7; font-weight: bold;">this</span>.mask = mask;
+<span class="linenr">20: </span>    <span style="color: #bc6ec5;">}</span>
+<span class="linenr">21: </span><span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org80a70d8" class="outline-3">
+<h3 id="org80a70d8"><span class="section-number-3">1.5</span> Lists</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orgd7893c3" class="outline-4">
+<h4 id="orgd7893c3"><span class="section-number-4">1.5.1</span> Ordered Lists</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<ol class="org-ol">
+<li>Ordered List Level 1</li>
+<li>Ordered List Level 1</li>
+<li>Ordered List Level 1
+<ol class="org-ol">
+<li>Ordered List Level 2</li>
+<li>Ordered List Level 2</li>
+<li>Ordered List Level 2
+<ol class="org-ol">
+<li>Ordered List Level 3</li>
+<li>Ordered List Level 3</li>
+<li>Ordered List Level 3</li>
+</ol></li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org33a373b" class="outline-4">
+<h4 id="org33a373b"><span class="section-number-4">1.5.2</span> Unordered Lists</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<ul class="org-ul">
+<li>Unordered List Level 1</li>
+<li>Unordered List Level 1</li>
+<li>Unordered List Level 1
+<ul class="org-ul">
+<li>Unordered List Level 2</li>
+<li>Unordered List Level 2</li>
+<li>Unordered List Level 2
+<ul class="org-ul">
+<li>Unordered List Level 3</li>
+<li>Unordered List Level 3</li>
+<li>Unordered List Level 3</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3ca0c24" class="outline-3">
+<h3 id="org3ca0c24"><span class="section-number-3">1.6</span> Schedule</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org2b257a1" class="outline-4">
+<h4 id="org2b257a1"><span class="section-number-4">1.6.1</span> Timestamps</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li><span class="timestamp-wrapper"><span class="timestamp">[2014-03-07 Fri]</span></span></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2014-03-07 Fri&gt;</span></span></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc5a5a76" class="outline-4">
+<h4 id="orgc5a5a76"><span class="section-number-4">1.6.2</span> <span class="todo TODO">TODO</span> Scheduled Task</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">SCHEDULED:</span> <span class="timestamp">&lt;2014-03-07 Fri&gt;</span></span></p>
+</div>
+</div>
+<div id="outline-container-orga2890cf" class="outline-4">
+<h4 id="orga2890cf"><span class="section-number-4">1.6.3</span> <span class="todo TODO">TODO</span> Deadline Task</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">DEADLINE:</span> <span class="timestamp">&lt;2014-03-07 Fri&gt;</span></span></p>
+</div>
+</div>
+<div id="outline-container-org1fe82e4" class="outline-4">
+<h4 id="org1fe82e4"><span class="section-number-4">1.6.4</span> <span class="done DONE">DONE</span> Closed Task</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2014-03-07 Fri 10:00]</span></span></p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfe026e6" class="outline-3">
+<h3 id="orgfe026e6"><span class="section-number-3">1.7</span> Tags</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-orga3ccfdb" class="outline-4">
+<h4 id="orga3ccfdb"><span class="section-number-4">1.7.1</span> Priorities&#xa0;&#xa0;&#xa0;<span class="tag"><span class="A">A</span>&#xa0;<span class="B">B</span>&#xa0;<span class="C">C</span></span></h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+Text in right position. Text in right position. Text in right position. Text in right position.
+Text in right position. Text in right position. Text in right position. Text in right position.
+</p>
+</div>
+</div>
+<div id="outline-container-org8739417" class="outline-4">
+<h4 id="org8739417"><span class="section-number-4">1.7.2</span> Names&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Obama">Obama</span>&#xa0;<span class="Bush">Bush</span>&#xa0;<span class="Clinton">Clinton</span></span></h4>
+<div class="outline-text-4" id="text-1-7-2">
+<p>
+Text in right position. Text in right position. Text in right position. Text in right position.
+Text in right position. Text in right position. Text in right position. Text in right position.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc96747b" class="outline-4">
+<h4 id="orgc96747b"><span class="section-number-4">1.7.3</span> Places&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Room">Room</span>&#xa0;<span class="Outside">Outside</span></span></h4>
+<div class="outline-text-4" id="text-1-7-3">
+<p>
+Text in right position. Text in right position. Text in right position. Text in right position.
+Text in right position. Text in right position. Text in right position. Text in right position.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6677a8a" class="outline-3">
+<h3 id="org6677a8a"><span class="section-number-3">1.8</span> Checks <code>[1/2]</code> <code>[50%]</code></h3>
+<div class="outline-text-3" id="text-1-8">
+</div>
+<div id="outline-container-org0ec3c98" class="outline-4">
+<h4 id="org0ec3c98"><span class="section-number-4">1.8.1</span> <span class="done DONE">DONE</span> Finished <code>[3/3]</code> <code>[100%]</code></h4>
+<div class="outline-text-4" id="text-1-8-1">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Item 1.</li>
+<li class="on"><code>[X]</code> Item 2.</li>
+<li class="on"><code>[X]</code> Item 3.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org22cb0cc" class="outline-4">
+<h4 id="org22cb0cc"><span class="section-number-4">1.8.2</span> <span class="todo TODO">TODO</span> In progress <code>[2/3]</code> <code>[66%]</code></h4>
+<div class="outline-text-4" id="text-1-8-2">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Item 1.</li>
+<li class="on"><code>[X]</code> Item 2.</li>
+<li class="off"><code>[&#xa0;]</code> Item 3.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9a69f8d" class="outline-3">
+<h3 id="org9a69f8d"><span class="section-number-3">1.9</span> Footnote​s</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li>See also <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.</li>
+<li>See also <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Text as footnote
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.google.com/">Link as footnote</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: xiaoyao</p>
+<p class="date">Created: 2019-01-21 Mon 15:08</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

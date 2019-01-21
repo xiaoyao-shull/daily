@@ -13,14 +13,15 @@ $(document).ready(function()
     }
 
     // Blackboard style background.
-    $('<div id="content-top">').prependTo('#content')
-    $('<div id="content-bottom">').appendTo('#content')
+    $('<div id="content-top">').prependTo('#content');
+    $('<div id="content-bottom">').appendTo('#content');
 
     // Corners of Image display.
     $('div.figure').after('<div class="figure-clear" />');
     $('<div class="figure-corner-north figure-corner-west">').prependTo('div.figure');
     $('<div class="figure-corner-north figure-corner-east">').prependTo('div.figure');
     $('<div class="figure-corner-south figure-corner-west">').prependTo('div.figure');
-//    $('<div class="figure-corner-south figure-corner-east">').prependTo('div.figure');
     $('div.figure').wrap('<div class="figure-container"></div>');
+
+    $('head').append('<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">');
 });

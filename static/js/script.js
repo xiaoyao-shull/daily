@@ -13,15 +13,14 @@ $(document).ready(function()
     }
 
     // Blackboard style background.
-    $('<div id="content-top">').prependTo('#content')
-    $('<div id="content-bottom">').appendTo('#content')
+    $('<div id="content-top">').prependTo('#content');
+    $('<div id="content-bottom">').appendTo('#content');
 
     // Corners of Image display.
     $('div.figure').after('<div class="figure-clear" />');
     $('<div class="figure-corner-north figure-corner-west">').prependTo('div.figure');
     $('<div class="figure-corner-north figure-corner-east">').prependTo('div.figure');
     $('<div class="figure-corner-south figure-corner-west">').prependTo('div.figure');
-//    $('<div class="figure-corner-south figure-corner-east">').prependTo('div.figure');
     $('div.figure').wrap('<div class="figure-container"></div>');
 
     // Insert convenient links after each section header.
@@ -29,6 +28,8 @@ $(document).ready(function()
     $('h2[id^="sec"]').append('<div class="goto goto-home"></div>');
     $('h2[id^="sec"]').append('<div class="goto goto-top"></div>');
     $('h2[id^="sec"]').append('<div class="goto-clear"></div>');
+
+    $('head').append('<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">');
 
     $('div.goto-home').append('<a href="http://sincebelieve.com"><img alt="Homepage" src="../../static/img/home.png" height="30px" width="30px" /></a>');
     $('div.goto-top').append('<a href="#content"><img alt="Top" src="../../static/img/top.png" height="30px" width="30px" /></a>');
