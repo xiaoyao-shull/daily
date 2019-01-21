@@ -1,0 +1,45 @@
+#+TITLE: GCD Algorithms
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
+* Euclidean algorithm
+  + Based on $\mbox{gcd}(a, b) = \mbox{gcd}(b, a\!\!\mod b)$.
+  #+BEGIN_VERSE
+    *algorithm* Euclidean;
+    *begin*
+        *while* $b \neq 0$ *do*
+        *begin*
+            $t \leftarrow b$;
+            $b \leftarrow a\!\!\mod b$;
+            $a \leftarrow t$;
+        *end*
+        return $a$;
+    *end*;
+  #+END_VERSE
+
+* Stein Algorithm
+  #+BEGIN_VERSE
+    *algorithm* Stein's;
+    *begin*
+        $k \leftarrow 0$
+        *while* true *do*
+        *begin*
+            *if* $b = 0$ *then* return $2^k \cdot a$;
+            *if* $a = 0$ *then* return $2^k \cdot b$;
+
+            *if* $a < b$ *then* swap values in $a$ and $b$;
+            *else if* $a$ is even *and* $b$ is even *then*
+            *begin*
+                $k \leftarrow k + 1$;
+                $a \leftarrow \left\lfloor a / 2 \right\rfloor$;
+                $b \leftarrow \left\lfloor b / 2 \right\rfloor$;
+            *end*
+            *else if* $a$ is even *then* $a \leftarrow \left\lfloor a / 2 \right\rfloor$;
+            *else if* $b$ is even *then* $b \leftarrow \left\lfloor b / 2 \right\rfloor$;
+            *else* $a \leftarrow a - b$;
+        *end*;
+    *end*;
+  #+END_VERSE
