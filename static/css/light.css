@@ -1,0 +1,212 @@
+body {
+    width: 90%;
+    font-family: monospace;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    font-family: monospace;
+    border: 3px solid #6600CC;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin: 2%;
+}
+
+table tbody tr:nth-child(even) {
+    background: #F0E6FA;
+}
+
+table th {
+    color: #FFFFFF;
+    background: #6600CC;
+    padding: 1px 12px 3px 12px;
+}
+table td {
+    font-family: monospace;
+    padding: 1px 15px 3px 15px;
+}
+
+table th+th {
+    border-left: 2px solid #FFFFFF;
+}
+
+table tbody th {
+    border-right: 2px solid #FFFFFF;
+    border-top: 2px solid #FFFFFF;
+}
+
+table caption {
+    caption-side: bottom;
+    font-style: italic;
+    text-align: right;
+    padding: 0.3em 0.15em;
+}
+
+table.RowHeader tr td:first-child {
+    color: #FFFFFF;
+    background: #6600CC;
+    padding: 1px 12px 3px 12px;
+    border-right: 2px solid #FFFFFF;
+    border-top: 2px solid #FFFFFF;
+    font-weight: bold
+}
+
+pre.src {
+    border: 3px solid #6600CC;
+    background: #F9F9FF;
+    border-radius: 10px;
+    font-weight: bold;
+    text-shadow: 1.1px 1.1px 1px #DEDEDE;
+    overflow: auto;
+}
+
+div.figure p {
+    display-style: block;
+    max-width: 61.8%;
+}
+
+div.figure p:first-child {
+    border: 3px solid #6600CC;
+    border-radius: 10px;
+}
+
+div.figure img {
+    max-width: 100%;
+    height: auto;
+}
+
+div.figure p:nth-child(2) {
+    font-family: monospace;
+    font-style: italic;
+    text-align: right;
+    margin-top: -10px;
+}
+
+li {
+   margin: 2px 0px;
+}
+
+code {
+    color: #CC9900;
+    font-weight: bold;
+    background-color: #F9F9FF;
+    border-radius: 5px;
+    padding: 0 0.3em;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px dotted;
+    color: #990033;
+    padding-top: 2px;
+}
+
+span.underline, b, i { color: #009900; }
+del { color: #440000; }
+
+span.underline {
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+
+.figure-number { font-weight: bold; }
+
+.table-number { font-weight: bold; }
+
+blockquote {
+    font-style: italic;
+    width: 61.8%;
+    margin-left: 7%;
+    margin-right: auto;
+    background-color: #F0E6FA;
+    border-left: 5px solid #6600CC;
+    padding: .5em 1em;
+    border-radius: 0 12px 12px 0px;
+}
+
+/*h2 {
+    font-size: 130%;
+    color: #FFFFFF;
+    background: #6600CC;
+    border-radius: 15px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}*/
+
+h3 {
+    font-size: 120%;
+    color: #6600CC;
+    border-bottom: 1px solid #F0E6FA;
+    margin-left: 1.5%;
+}
+
+h4 {
+    font-size: 110%;
+    color: #6600CC;
+    margin-left: 1.5%;
+}
+
+h2, h3, h4 {
+    line-height: 1.2;
+}
+
+div[class^="outline-text-"] {
+    margin-left: 1.5%;
+}
+
+div[class^="outline-text"] hr {
+    border-top: none;
+    border-bottom: 1px dashed #F0E6FA;
+}
+
+h2 span.timestamp { float: right; font-style: italic; margin-right: 0.5em; }
+h3 span.timestamp { float: right; font-style: italic; margin-right: 0.5em; }
+h4 span.timestamp { float: right; font-style: italic; margin-right: 0.5em; }
+
+
+table tbody code {
+    background-color: #FFFFFF;
+}
+
+table tbody tr:nth-child(even) code {
+    background: #F0E6FA;
+}
+
+table th code {
+    background: #6600CC;
+}
+
+h2 span.done { color: #00CC00; }
+h2 span.tag { background: #6600CC; font-style: italic; font-weight: bold; color: #B2B200; }
+a span.tag { background: none; font-style: italic; font-weight: bold; color: #B2B200; }
+
+/* If org-jsinfo.el is used. */
+table.org-info-js_info-navigation {
+    border-bottom: 5px solid #F0E6FA !important;
+    border: 5px solid #F0E6FA !important;
+    width: 96% !important;
+    background: #F0E6FA;
+}
+div.org-info-js_header-navigation {
+    margin-top: 0.35em !important;
+    margin-right: 1em !important;
+}
+
+h4 {
+    border-bottom: 1px solid #FFFFFF !important;
+}
+
+h4:hover, h3:hover {
+    border-bottom: 1px solid #6600CC !important;
+}
+
+a:hover {
+    border-bottom: 2px solid;
+}
+
+a[href$="showHelp();"], a[href^="javascript:org_html_manager.toggleView"] { color: #bebebe !important; border-bottom: none !important; }
+ 

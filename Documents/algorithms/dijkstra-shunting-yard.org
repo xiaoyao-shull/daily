@@ -1,4 +1,10 @@
 #+TITLE: Dijkstra's Shunting Yard Algorithm
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script-homepage.js"></script>
+
 + For convenience, brackets are not considered as operators.
 #+BEGIN_VERSE
 *algorithm* Dijkstra's Shunting Yard Algorithm;

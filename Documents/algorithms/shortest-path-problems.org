@@ -1,5 +1,9 @@
-#+OPTIONS: toc:1
 #+TITLE: Shortest Path Problems
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script-homepage.js"></script>
 
 * Single Source Shortest Path Problems in Directed Acyclic Networks
   + A topological ordering of nodes is available for a directed acyclic network such that for any $(i, j) \in A$, $i$ appears before $j$ in the ordering.
