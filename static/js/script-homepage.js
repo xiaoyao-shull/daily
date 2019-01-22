@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+    /*
     // Disqus integration.
     if ( window.location.protocol === 'http:' )
     {
@@ -11,6 +12,7 @@ $(document).ready(function()
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }
+    */
 
     // Blackboard style background.
     $('<div id="content-top">').prependTo('#content');
@@ -23,5 +25,5 @@ $(document).ready(function()
     $('<div class="figure-corner-south figure-corner-west">').prependTo('div.figure');
     $('div.figure').wrap('<div class="figure-container"></div>');
 
-    $('head').append('<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">');
+    $('head').append('<link href="https://fonts.googleapis.com/css?family=Kalam|Oxygen+Mono" rel="stylesheet">');
 });

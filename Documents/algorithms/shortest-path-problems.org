@@ -58,7 +58,7 @@
              $S \leftarrow S \cup \{ i \}$;
              $\bar S \leftarrow \bar S - \{ i \}$;
              *for* each $(i, j) \in A(i)$ *do*
-                 *if* $d(j) > d(i) > c_{ij}$ *then*
+                 *if* $d(j) > d(i) + c_{ij}$ *then*
                  *begin*
                      $d(j) \leftarrow d(i) + c_{ij}$;
                      $\mbox{pred}(j) \leftarrow i$;

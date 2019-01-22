@@ -1,17 +1,18 @@
 body {
-    width: 90%;
-    margin: 50px auto;
+    margin: 20px auto;
+    padding: 0px;
+    height: 100%;
+    width: 95%;
     color: white;
     background-color: darkgray;
-    font-family: monospace;
     line-height: 1.2em;
-    font-size: 18px;
-    font-family: 'Handlee', cursive;
+    font-size: 24px;
+    font-family: 'Kalam', cursive;
 }
 /* Blackboard Style Background */
-#content        { padding: 0 40px; background-color: #204030; border: 16px solid #B48A36; border-radius: 12px; }
-#content-top    { margin-left: -40px; width: 960px; height: 48px; }
-#content-bottom { margin-left: -40px; width: 960px; height: 48px; }
+#content        { background-color: #204030; border: 16px solid #B48A36; border-radius: 12px; padding-left: 20px; padding-right: 20px; margin: 0px; }
+#content-top    { height: 48px; }
+#content-bottom { height: 48px; }
 /* Section Headings */
 h1 { margin-top: 1em; margin-bottom: 0.5em; font-size: xx-large; text-align: center; padding-bottom: 40px; }
 h2 { margin-top: 1em; margin-bottom: 0.5em; font-size: x-large; }
@@ -20,16 +21,19 @@ h4 { margin-top: 1em; margin-bottom: 0.5em; font-size: large; }
 /* Source Code Display */
 div.org-src-container {
     color: #DDDDDD;
-    border: solid 3px #000A00;
-    background-color: #001100;
+    border: solid 3px #001A00;
+    background-color: #001A00;
     margin: 0.6em 1.2em 0.5em;
     border-radius: 15px;
     padding: 0.5em;
     overflow: hidden;
-    width: 95%;
+    white-space: nowrap;
 }
 span.linenr { color: #777; }
-pre { font-family: monospace; line-height: 1.1em; }
+pre {
+    font-family: 'Oxygen Mono', monospace;
+    line-height: 1.35em;
+}
 span.code-highlighted { background-color: darkred; }
 /* List */
 li li ul>li { list-style: url(../img/bullet-16-dots.png); }
@@ -48,19 +52,19 @@ a, a:visited { color: #3ACAFF; text-decoration: none; }
 a:hover { font-weight: bold; }
 a:active { position: relative; bottom: -3px; }
 /* Text */
-b { font-weight: bold; color: #FFF555; }
+b { font-weight: bold; color: #FFFF99; }
 i { color: #B36EFF;font-style: italic; }
-code { color: #FFF555; }
+code { font-family: 'Oxygen Mono', monospace; color: #FFFF99; }
 del { text-decoration: none; border-bottom: 2px solid #AAAAAA; line-height: 0; display: inline-block; color: #AAAAAA; }
 del b { border-bottom: 2px solid #FF7890; line-height: 0; display: inline-block; position: relative; bottom: -2px; }
 del i { border-bottom: 2px solid #B36EFF; line-height: 0; display: inline-block; position: relative; bottom: -2px; }
 del a { border-bottom: 2px solid #3ACAFF; line-height: 0; display: inline-block; position: relative; bottom: -2px; }
-del code { border-bottom: 2px solid #FFF555; line-height: 0; display: inline-block; position: relative; bottom: -2px; }
+del code { border-bottom: 2px solid #FFFF99; line-height: 0; display: inline-block; position: relative; bottom: -2px; }
 span.underline { border-bottom: 2px solid #7FFF80; line-height: .9em; display: inline-block; color: #7FFF80; }
 span.underline b { border-bottom: 2px solid #FF7890; line-height: .9em; display: inline-block; position: relative; bottom: -2px; }
 span.underline i { border-bottom: 2px solid #B36EFF; line-height: .9em; display: inline-block; position: relative; bottom: -2px; }
 span.underline a { border-bottom: 2px solid #3ACAFF; line-height: .9em; display: inline-block; position: relative; bottom: -2px; }
-span.underline code { border-bottom: 2px solid #FFF555; line-height: .9em; display: inline-block; position: relative; bottom: -2px; }
+span.underline code { border-bottom: 2px solid #FFFF99; line-height: .9em; display: inline-block; position: relative; bottom: -2px; }
 p { margin-left: 1em; margin-right: 1em; text-align: justify; }
 /* Table */
 table { margin: 1em auto; min-width: 60%; }
@@ -111,8 +115,6 @@ a.footref:before, a.footnum:before { content: "["; }
 a.footref:after, a.footnum:after { content: "]" }
 p.footpara { display: inline-block; margin-left: 0; }
 hr { color: darkgray; border: 1px dashed; width: 94%;}
-/* Formula */
-span.MathJax { font-size: 13px; }
 
 /* disqus */
 div#disqus_thread {
@@ -120,4 +122,19 @@ div#disqus_thread {
     opacity: 0.75;
     border-radius: 12px;
     padding: 15px;
+}
+
+/* verse */
+p.verse {
+    color: #DDDDDD;
+    border: solid 3px #001A00;
+    background-color: #001A00;
+    margin: 0.6em 1.2em 0.5em;
+    border-radius: 15px;
+    padding: 0.5em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    font-family: 'Oxygen Mono', monospace;
+    line-height: 1.4em;
 }

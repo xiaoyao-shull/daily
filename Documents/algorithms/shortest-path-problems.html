@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-21 Mon 15:32 -->
+<!-- 2019-01-22 Tue 17:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Shortest Path Problems</title>
@@ -89,48 +89,48 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7efc7d9">1. Single Source Shortest Path Problems in Directed Acyclic Networks</a>
+<li><a href="#org4856625">1. Single Source Shortest Path Problems in Directed Acyclic Networks</a>
 <ul>
-<li><a href="#org754c516">1.1. The Pulling Algorithm</a></li>
-<li><a href="#org6aa48c9">1.2. The Reaching Algorithm</a></li>
+<li><a href="#org27fa065">1.1. The Pulling Algorithm</a></li>
+<li><a href="#org4fab194">1.2. The Reaching Algorithm</a></li>
 </ul>
 </li>
-<li><a href="#org3d49cd6">2. Single Source Shortest Path Problems in Networks With No Negative Arc Length</a>
+<li><a href="#org7901076">2. Single Source Shortest Path Problems in Networks With No Negative Arc Length</a>
 <ul>
-<li><a href="#orgc7fd69d">2.1. Dijkstra Algorithm</a></li>
-<li><a href="#orgf781a66">2.2. Optimization: Bidiretional Search</a></li>
-<li><a href="#orge54cbf8">2.3. Optimization: Heap</a></li>
-<li><a href="#org902f019">2.4. Optimization: Dial's Implementation</a></li>
+<li><a href="#org1100a3b">2.1. Dijkstra Algorithm</a></li>
+<li><a href="#org377e2bd">2.2. Optimization: Bidiretional Search</a></li>
+<li><a href="#org70825be">2.3. Optimization: Heap</a></li>
+<li><a href="#orgd9b27a3">2.4. Optimization: Dial's Implementation</a></li>
 </ul>
 </li>
-<li><a href="#orgdda6903">3. Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths</a>
+<li><a href="#orgd953514">3. Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths</a>
 <ul>
-<li><a href="#org70d3187">3.1. Optimality Condition</a></li>
-<li><a href="#org358fd35">3.2. Generic Label-Correcting Algorithm</a></li>
-<li><a href="#orga1604de">3.3. Modified Label-Correcting Algorithm</a></li>
-<li><a href="#org7c0326a">3.4. Modified Label-Correcting Algorithm Implementations</a>
+<li><a href="#org395c1d4">3.1. Optimality Condition</a></li>
+<li><a href="#org3d764df">3.2. Generic Label-Correcting Algorithm</a></li>
+<li><a href="#org095976f">3.3. Modified Label-Correcting Algorithm</a></li>
+<li><a href="#orgd293a00">3.4. Modified Label-Correcting Algorithm Implementations</a>
 <ul>
-<li><a href="#org47d97fd">3.4.1. <span class="todo TODO">TODO</span> FIFO Implementation</a></li>
-<li><a href="#org2e57cf7">3.4.2. <span class="todo TODO">TODO</span> Dequeue Implementation</a></li>
+<li><a href="#org04de902">3.4.1. <span class="todo TODO">TODO</span> FIFO Implementation</a></li>
+<li><a href="#org6a2d519">3.4.2. <span class="todo TODO">TODO</span> Dequeue Implementation</a></li>
 </ul>
 </li>
-<li><a href="#orge827539">3.5. <span class="todo TODO">TODO</span> Detecting Negative Cycles</a></li>
+<li><a href="#org6040304">3.5. <span class="todo TODO">TODO</span> Detecting Negative Cycles</a></li>
 </ul>
 </li>
-<li><a href="#org108b37d">4. All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths</a>
+<li><a href="#org58507f5">4. All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths</a>
 <ul>
-<li><a href="#orgcb8f682">4.1. <span class="todo TODO">TODO</span> Repeated Shortest Path Algorithm</a></li>
-<li><a href="#orgf5c4bcd">4.2. <span class="todo TODO">TODO</span> Generic Label-Correcting Algorithm</a></li>
-<li><a href="#org16b7976">4.3. <span class="todo TODO">TODO</span> Floyd-Warshall Algorithm</a></li>
-<li><a href="#org4520c51">4.4. <span class="todo TODO">TODO</span> Detecting Negative Cycles</a></li>
+<li><a href="#org2a481cf">4.1. <span class="todo TODO">TODO</span> Repeated Shortest Path Algorithm</a></li>
+<li><a href="#orgac74aa1">4.2. <span class="todo TODO">TODO</span> Generic Label-Correcting Algorithm</a></li>
+<li><a href="#org332941c">4.3. <span class="todo TODO">TODO</span> Floyd-Warshall Algorithm</a></li>
+<li><a href="#orgb58f320">4.4. <span class="todo TODO">TODO</span> Detecting Negative Cycles</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7efc7d9" class="outline-2">
-<h2 id="org7efc7d9"><span class="section-number-2">1</span> Single Source Shortest Path Problems in Directed Acyclic Networks</h2>
+<div id="outline-container-org4856625" class="outline-2">
+<h2 id="org4856625"><span class="section-number-2">1</span> Single Source Shortest Path Problems in Directed Acyclic Networks</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>A topological ordering of nodes is available for a directed acyclic network such that for any \((i, j) \in A\), \(i\) appears before \(j\) in the ordering.</li>
@@ -140,8 +140,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org754c516" class="outline-3">
-<h3 id="org754c516"><span class="section-number-3">1.1</span> The Pulling Algorithm</h3>
+<div id="outline-container-org27fa065" class="outline-3">
+<h3 id="org27fa065"><span class="section-number-3">1.1</span> The Pulling Algorithm</h3>
 <div class="outline-text-3" id="text-1-1">
 <p class="verse">
 <b>algorithm</b> Pulling;<br />
@@ -160,8 +160,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org6aa48c9" class="outline-3">
-<h3 id="org6aa48c9"><span class="section-number-3">1.2</span> The Reaching Algorithm</h3>
+<div id="outline-container-org4fab194" class="outline-3">
+<h3 id="org4fab194"><span class="section-number-3">1.2</span> The Reaching Algorithm</h3>
 <div class="outline-text-3" id="text-1-2">
 <p class="verse">
 <b>algorithm</b> Reaching;<br />
@@ -181,12 +181,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3d49cd6" class="outline-2">
-<h2 id="org3d49cd6"><span class="section-number-2">2</span> Single Source Shortest Path Problems in Networks With No Negative Arc Length</h2>
+<div id="outline-container-org7901076" class="outline-2">
+<h2 id="org7901076"><span class="section-number-2">2</span> Single Source Shortest Path Problems in Networks With No Negative Arc Length</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgc7fd69d" class="outline-3">
-<h3 id="orgc7fd69d"><span class="section-number-3">2.1</span> Dijkstra Algorithm</h3>
+<div id="outline-container-org1100a3b" class="outline-3">
+<h3 id="org1100a3b"><span class="section-number-3">2.1</span> Dijkstra Algorithm</h3>
 <div class="outline-text-3" id="text-2-1">
 <p class="verse">
 <b>algorithm</b> Dijkstra's;<br />
@@ -200,7 +200,7 @@ for the JavaScript code in this tag.
 &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(S \leftarrow S \cup \{ i \}\);<br />
 &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(\bar S \leftarrow \bar S - \{ i \}\);<br />
 &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>for</b> each \((i, j) \in A(i)\) <b>do</b><br />
-&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>if</b> \(d(j) > d(i) > c_{ij}\) <b>then</b><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>if</b> \(d(j) > d(i) + c_{ij}\) <b>then</b><br />
 &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<b>begin</b><br />
 &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(d(j) \leftarrow d(i) + c_{ij}\);<br />
 &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;\(\mbox{pred}(j) \leftarrow i\);<br />
@@ -216,8 +216,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf781a66" class="outline-3">
-<h3 id="orgf781a66"><span class="section-number-3">2.2</span> Optimization: Bidiretional Search</h3>
+<div id="outline-container-org377e2bd" class="outline-3">
+<h3 id="org377e2bd"><span class="section-number-3">2.2</span> Optimization: Bidiretional Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>We perform two instances of Dijkstra's algorithm in parallel.</li>
@@ -245,8 +245,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orge54cbf8" class="outline-3">
-<h3 id="orge54cbf8"><span class="section-number-3">2.3</span> Optimization: Heap</h3>
+<div id="outline-container-org70825be" class="outline-3">
+<h3 id="org70825be"><span class="section-number-3">2.3</span> Optimization: Heap</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>We concern ourselves with the following operations of the heap data structure:
@@ -345,8 +345,8 @@ Different heap implementations give different complexities:
 </div>
 </div>
 
-<div id="outline-container-org902f019" class="outline-3">
-<h3 id="org902f019"><span class="section-number-3">2.4</span> Optimization: Dial's Implementation</h3>
+<div id="outline-container-orgd9b27a3" class="outline-3">
+<h3 id="orgd9b27a3"><span class="section-number-3">2.4</span> Optimization: Dial's Implementation</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Dial's implementation avoids node selecting operations by using \((1 + nC)\) buckets to hold nodes when their distance labels are finite but not confirmed as optimal.</li>
@@ -359,12 +359,12 @@ Different heap implementations give different complexities:
 </div>
 </div>
 
-<div id="outline-container-orgdda6903" class="outline-2">
-<h2 id="orgdda6903"><span class="section-number-2">3</span> Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths</h2>
+<div id="outline-container-orgd953514" class="outline-2">
+<h2 id="orgd953514"><span class="section-number-2">3</span> Single Source Shortest Path Problems in Networks With Arbitrary Arc Lengths</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org70d3187" class="outline-3">
-<h3 id="org70d3187"><span class="section-number-3">3.1</span> Optimality Condition</h3>
+<div id="outline-container-org395c1d4" class="outline-3">
+<h3 id="org395c1d4"><span class="section-number-3">3.1</span> Optimality Condition</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>The distance label \(d(\cdot)\) represent the shortest path length if and only if \(d(j) \le d(i) + c_{ij}\) for all arc \((i, j) \in A\).</li>
@@ -384,8 +384,8 @@ Different heap implementations give different complexities:
 </div>
 </div>
 
-<div id="outline-container-org358fd35" class="outline-3">
-<h3 id="org358fd35"><span class="section-number-3">3.2</span> Generic Label-Correcting Algorithm</h3>
+<div id="outline-container-org3d764df" class="outline-3">
+<h3 id="org3d764df"><span class="section-number-3">3.2</span> Generic Label-Correcting Algorithm</h3>
 <div class="outline-text-3" id="text-3-2">
 <p class="verse">
 <b>algorithm</b> generic label-correcting;<br />
@@ -407,8 +407,8 @@ Different heap implementations give different complexities:
 </div>
 </div>
 
-<div id="outline-container-orga1604de" class="outline-3">
-<h3 id="orga1604de"><span class="section-number-3">3.3</span> Modified Label-Correcting Algorithm</h3>
+<div id="outline-container-org095976f" class="outline-3">
+<h3 id="org095976f"><span class="section-number-3">3.3</span> Modified Label-Correcting Algorithm</h3>
 <div class="outline-text-3" id="text-3-3">
 <p class="verse">
 <b>algorithm</b> modified label-correcting;<br />
@@ -435,44 +435,44 @@ Different heap implementations give different complexities:
 </div>
 </div>
 
-<div id="outline-container-org7c0326a" class="outline-3">
-<h3 id="org7c0326a"><span class="section-number-3">3.4</span> Modified Label-Correcting Algorithm Implementations</h3>
+<div id="outline-container-orgd293a00" class="outline-3">
+<h3 id="orgd293a00"><span class="section-number-3">3.4</span> Modified Label-Correcting Algorithm Implementations</h3>
 <div class="outline-text-3" id="text-3-4">
 </div>
-<div id="outline-container-org47d97fd" class="outline-4">
-<h4 id="org47d97fd"><span class="section-number-4">3.4.1</span> <span class="todo TODO">TODO</span> FIFO Implementation</h4>
+<div id="outline-container-org04de902" class="outline-4">
+<h4 id="org04de902"><span class="section-number-4">3.4.1</span> <span class="todo TODO">TODO</span> FIFO Implementation</h4>
 </div>
-<div id="outline-container-org2e57cf7" class="outline-4">
-<h4 id="org2e57cf7"><span class="section-number-4">3.4.2</span> <span class="todo TODO">TODO</span> Dequeue Implementation</h4>
-</div>
-</div>
-
-<div id="outline-container-orge827539" class="outline-3">
-<h3 id="orge827539"><span class="section-number-3">3.5</span> <span class="todo TODO">TODO</span> Detecting Negative Cycles</h3>
+<div id="outline-container-org6a2d519" class="outline-4">
+<h4 id="org6a2d519"><span class="section-number-4">3.4.2</span> <span class="todo TODO">TODO</span> Dequeue Implementation</h4>
 </div>
 </div>
 
-<div id="outline-container-org108b37d" class="outline-2">
-<h2 id="org108b37d"><span class="section-number-2">4</span> All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths</h2>
+<div id="outline-container-org6040304" class="outline-3">
+<h3 id="org6040304"><span class="section-number-3">3.5</span> <span class="todo TODO">TODO</span> Detecting Negative Cycles</h3>
+</div>
+</div>
+
+<div id="outline-container-org58507f5" class="outline-2">
+<h2 id="org58507f5"><span class="section-number-2">4</span> All-Pair Shortest Path Problems in Networks With Arbitrary Arc Lengths</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgcb8f682" class="outline-3">
-<h3 id="orgcb8f682"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> Repeated Shortest Path Algorithm</h3>
+<div id="outline-container-org2a481cf" class="outline-3">
+<h3 id="org2a481cf"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> Repeated Shortest Path Algorithm</h3>
 </div>
-<div id="outline-container-orgf5c4bcd" class="outline-3">
-<h3 id="orgf5c4bcd"><span class="section-number-3">4.2</span> <span class="todo TODO">TODO</span> Generic Label-Correcting Algorithm</h3>
+<div id="outline-container-orgac74aa1" class="outline-3">
+<h3 id="orgac74aa1"><span class="section-number-3">4.2</span> <span class="todo TODO">TODO</span> Generic Label-Correcting Algorithm</h3>
 </div>
-<div id="outline-container-org16b7976" class="outline-3">
-<h3 id="org16b7976"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> Floyd-Warshall Algorithm</h3>
+<div id="outline-container-org332941c" class="outline-3">
+<h3 id="org332941c"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> Floyd-Warshall Algorithm</h3>
 </div>
-<div id="outline-container-org4520c51" class="outline-3">
-<h3 id="org4520c51"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> Detecting Negative Cycles</h3>
+<div id="outline-container-orgb58f320" class="outline-3">
+<h3 id="orgb58f320"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> Detecting Negative Cycles</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: xiaoyao</p>
-<p class="date">Created: 2019-01-21 Mon 15:32</p>
+<p class="date">Created: 2019-01-22 Tue 17:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
