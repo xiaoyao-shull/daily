@@ -9,7 +9,7 @@
   + We will first consider the simplest situation: the searched value exists in the sorted array.
   + When implementing binary search algorithm, always ask yourself the following two questions:
     - How to avoid infinite loop.
-    - How to update seaching space.
+    - How to update searching space.
 ** Searching Left-Most Element
    #+BEGIN_SRC C -n -r
      int binary_search_leftmost(int * array, int size, int target) {
@@ -80,8 +80,8 @@
   #+END_SRC
   + =binary_search_index_max= returns maximum index of searched value if found, -1 otherwise.
   + =binary_search_index_min= returns minumum index of searched value if found, -1 otherwise.
-  + =binary_search_range_le= returns the upper bound of range for elements less than or equal to the seached value, -1 if the range is empty.
-  + =binary_search_range_ge= returns the lower bound of range for elements greater than or equal to the seached value, -1 if the range is empty.
+  + =binary_search_range_le= returns the upper bound of range for elements less than or equal to the searched value, -1 if the range is empty.
+  + =binary_search_range_ge= returns the lower bound of range for elements greater than or equal to the searched value, -1 if the range is empty.
 
 * The Example
   + Suppose the sorted array is ={1, 2, 3, 5, 5, 5, 7, 8, 9}=, index starts from 0.
