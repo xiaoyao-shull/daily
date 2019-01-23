@@ -1,0 +1,97 @@
+#+TITLE: Binary Search
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
+* The Core
+  + We will first consider the simplest situation: the searched value exists in the sorted array.
+  + When implementing binary search algorithm, always ask yourself the following two questions:
+    - How to avoid infinite loop.
+    - How to update seaching space.
+** Searching Left-Most Element
+   #+BEGIN_SRC C -n -r
+     int binary_search_leftmost(int * array, int size, int target) {
+       int lower = 0;
+       int upper = size - 1;
+       int inter;
+       while (lower < upper) {
+         inter = (lower + upper) / 2; (ref:lm-inter)
+         if (array[inter] < target) { (ref:lm-if)
+           lower = inter + 1; (ref:lm-lower)
+
+         } else {
+           upper = inter;
+         }
+       }
+       return lower; (ref:lm-return)
+     }
+   #+END_SRC
+   + In line [[(lm-inter)]], =inter= might equal =lower=, but must be less than =upper=.
+   + In line [[(lm-lower)]], =lower= is updated with =inter + 1= to avoid infinite loop.
+   + In line [[(lm-if)]], =lower= is updated on strict condition (less than) rather than a relaxed one (less than or equals).
+   + In line [[(lm-return)]], =lower= is returned which guarantees that if =target= is in =array=, the minimum index is returned.
+   
+** Searching Right-Most Element
+   + Try yourself to analyze the mirrow version which returns the maximum index of =target= in =array= if exists.
+   #+BEGIN_SRC C -n -r
+     int binary_search_rightmost(int * array, int size, int target) {
+       int lower = 0;
+       int upper = size - 1;
+       int inter;
+       while (lower < upper) {
+         inter = (lower + upper + 1) / 2;
+         if (array[inter] > target) {
+           upper = inter - 1;
+
+         } else {
+           lower = inter;
+         }
+       }
+       return upper;
+     }
+   #+END_SRC
+
+* The Wrapper
+  + What if the searched value is not found in the sorted array?
+  + We need to check the returned index.
+  + By wrapping the core functions explained in previous section, we have the following utility functions come in handy:
+  #+BEGIN_SRC C
+    int binary_search_index_max(int * array, int size, int target) {
+      int i = binary_search_rightmost(array, size, target);
+      return array[i] == target ? i : -1;
+    }
+
+    int binary_search_index_min(int * array, int size, int target) {
+      int i = binary_search_leftmost(array, size, target);
+      return array[i] == target ? i : -1;
+    }
+
+    int binary_search_range_ge(int * array, int size, int target) {
+      int i = binary_search_leftmost(array, size, target);
+      return array[i] >= target ? i : -1;
+    }
+
+    int binary_search_range_le(int * array, int size, int target) {
+      int i = binary_search_rightmost(array, size, target);
+      return array[i] <= target ? i : -1;
+    }
+  #+END_SRC
+  + =binary_search_index_max= returns maximum index of searched value if found, -1 otherwise.
+  + =binary_search_index_min= returns minumum index of searched value if found, -1 otherwise.
+  + =binary_search_range_le= returns the upper bound of range for elements less than or equal to the seached value, -1 if the range is empty.
+  + =binary_search_range_ge= returns the lower bound of range for elements greater than or equal to the seached value, -1 if the range is empty.
+
+* The Example
+  + Suppose the sorted array is ={1, 2, 3, 5, 5, 5, 7, 8, 9}=, index starts from 0.
+
+  | value | 1 | 2 | 3 | 5 | 5 | 5 | 7 | 8 | 9 |
+  | index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+
+  |                           | target = 5 | target = 4 | target = 6 | target = 0 | target = 10 |
+  |---------------------------+------------+------------+------------+------------+-------------|
+  | =binary_search_index_max= |          5 |         -1 |         -1 |         -1 |          -1 |
+  | =binary_search_index_min= |          3 |         -1 |         -1 |         -1 |          -1 |
+  | =binary_search_range_le=  |          3 |          3 |          6 |          0 |          -1 |
+  | =binary_search_range_ge=  |          5 |          2 |          5 |         -1 |           8 |

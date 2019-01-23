@@ -1,4 +1,4 @@
-#+TITLE: Home
+#+TITLE: Shull's Homepage
 #+OPTIONS: html-style:nil p:t
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./static/css/reset.css" />
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./static/css/style.css" />

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-01-24 Thu 02:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Binary Search</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="xiaoyao" />
+<link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+<script src="../../static/js/jquery.js"></script>
+<script src="../../static/js/script.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Binary Search</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgc9f23ec">1. The Core</a>
+<ul>
+<li><a href="#org94b01e6">1.1. Searching Left-Most Element</a></li>
+<li><a href="#org2af88d9">1.2. Searching Right-Most Element</a></li>
+</ul>
+</li>
+<li><a href="#orgeb89396">2. The Wrapper</a></li>
+<li><a href="#org66623b4">3. The Example</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc9f23ec" class="outline-2">
+<h2 id="orgc9f23ec"><span class="section-number-2">1</span> The Core</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>We will first consider the simplest situation: the searched value exists in the sorted array.</li>
+<li>When implementing binary search algorithm, always ask yourself the following two questions:
+<ul class="org-ul">
+<li>How to avoid infinite loop.</li>
+<li>How to update seaching space.</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org94b01e6" class="outline-3">
+<h3 id="org94b01e6"><span class="section-number-3">1.1</span> Searching Left-Most Element</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-C"><span class="linenr"> 1: </span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search_leftmost</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> * <span style="color: #7590db;">array</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">size</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">target</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+<span class="linenr"> 2: </span>  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">lower</span> = <span style="color: #a45bad;">0</span>;
+<span class="linenr"> 3: </span>  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">upper</span> = size - <span style="color: #a45bad;">1</span>;
+<span class="linenr"> 4: </span>  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">inter</span>;
+<span class="linenr"> 5: </span>  <span style="color: #4f97d7; font-weight: bold;">while</span> <span style="color: #bc6ec5;">(</span>lower &lt; upper<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+<span id="coderef-lm-inter" class="coderef-off"><span class="linenr"> 6: </span>    inter = <span style="color: #2d9574;">(</span>lower + upper<span style="color: #2d9574;">)</span> / <span style="color: #a45bad;">2</span>;</span>
+<span id="coderef-lm-if" class="coderef-off"><span class="linenr"> 7: </span>    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>array<span style="color: #67b11d;">[</span>inter<span style="color: #67b11d;">]</span> &lt; target<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span></span>
+<span id="coderef-lm-lower" class="coderef-off"><span class="linenr"> 8: </span>      lower = inter + <span style="color: #a45bad;">1</span>;</span>
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #2d9574;">}</span> <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #2d9574;">{</span>
+<span class="linenr">11: </span>      upper = inter;
+<span class="linenr">12: </span>    <span style="color: #2d9574;">}</span>
+<span class="linenr">13: </span>  <span style="color: #bc6ec5;">}</span>
+<span id="coderef-lm-return" class="coderef-off"><span class="linenr">14: </span>  <span style="color: #4f97d7; font-weight: bold;">return</span> lower;</span>
+<span class="linenr">15: </span><span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>In line <a href="#coderef-lm-inter" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-inter');" onmouseout="CodeHighlightOff(this, 'coderef-lm-inter');">6</a>, <code>inter</code> might equal <code>lower</code>, but must be less than <code>upper</code>.</li>
+<li>In line <a href="#coderef-lm-lower" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-lower');" onmouseout="CodeHighlightOff(this, 'coderef-lm-lower');">8</a>, <code>lower</code> is updated with <code>inter + 1</code> to avoid infinite loop.</li>
+<li>In line <a href="#coderef-lm-if" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-if');" onmouseout="CodeHighlightOff(this, 'coderef-lm-if');">7</a>, <code>lower</code> is updated on strict condition (less than) rather than a relaxed one (less than or equals).</li>
+<li>In line <a href="#coderef-lm-return" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-return');" onmouseout="CodeHighlightOff(this, 'coderef-lm-return');">14</a>, <code>lower</code> is returned which guarantees that if <code>target</code> is in <code>array</code>, the minimum index is returned.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2af88d9" class="outline-3">
+<h3 id="org2af88d9"><span class="section-number-3">1.2</span> Searching Right-Most Element</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Try yourself to analyze the mirrow version which returns the maximum index of <code>target</code> in <code>array</code> if exists.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-C"><span class="linenr"> 1: </span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search_rightmost</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> * <span style="color: #7590db;">array</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">size</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">target</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+<span class="linenr"> 2: </span>  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">lower</span> = <span style="color: #a45bad;">0</span>;
+<span class="linenr"> 3: </span>  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">upper</span> = size - <span style="color: #a45bad;">1</span>;
+<span class="linenr"> 4: </span>  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">inter</span>;
+<span class="linenr"> 5: </span>  <span style="color: #4f97d7; font-weight: bold;">while</span> <span style="color: #bc6ec5;">(</span>lower &lt; upper<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+<span class="linenr"> 6: </span>    inter = <span style="color: #2d9574;">(</span>lower + upper + <span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span> / <span style="color: #a45bad;">2</span>;
+<span class="linenr"> 7: </span>    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>array<span style="color: #67b11d;">[</span>inter<span style="color: #67b11d;">]</span> &gt; target<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+<span class="linenr"> 8: </span>      upper = inter - <span style="color: #a45bad;">1</span>;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #2d9574;">}</span> <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #2d9574;">{</span>
+<span class="linenr">11: </span>      lower = inter;
+<span class="linenr">12: </span>    <span style="color: #2d9574;">}</span>
+<span class="linenr">13: </span>  <span style="color: #bc6ec5;">}</span>
+<span class="linenr">14: </span>  <span style="color: #4f97d7; font-weight: bold;">return</span> upper;
+<span class="linenr">15: </span><span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb89396" class="outline-2">
+<h2 id="orgeb89396"><span class="section-number-2">2</span> The Wrapper</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>What if the searched value is not found in the sorted array?</li>
+<li>We need to check the returned index.</li>
+<li>By wrapping the core functions explained in previous section, we have the following utility functions come in handy:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search_index_max</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> * <span style="color: #7590db;">array</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">size</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">target</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = binary_search_rightmost<span style="color: #bc6ec5;">(</span>array, size, target<span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold;">return</span> array<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span> == target ? i : -<span style="color: #a45bad;">1</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search_index_min</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> * <span style="color: #7590db;">array</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">size</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">target</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = binary_search_leftmost<span style="color: #bc6ec5;">(</span>array, size, target<span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold;">return</span> array<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span> == target ? i : -<span style="color: #a45bad;">1</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search_range_ge</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> * <span style="color: #7590db;">array</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">size</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">target</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = binary_search_leftmost<span style="color: #bc6ec5;">(</span>array, size, target<span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold;">return</span> array<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span> &gt;= target ? i : -<span style="color: #a45bad;">1</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search_range_le</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> * <span style="color: #7590db;">array</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">size</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">target</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = binary_search_rightmost<span style="color: #bc6ec5;">(</span>array, size, target<span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold;">return</span> array<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span> &lt;= target ? i : -<span style="color: #a45bad;">1</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>binary_search_index_max</code> returns maximum index of searched value if found, -1 otherwise.</li>
+<li><code>binary_search_index_min</code> returns minumum index of searched value if found, -1 otherwise.</li>
+<li><code>binary_search_range_le</code> returns the upper bound of range for elements less than or equal to the seached value, -1 if the range is empty.</li>
+<li><code>binary_search_range_ge</code> returns the lower bound of range for elements greater than or equal to the seached value, -1 if the range is empty.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org66623b4" class="outline-2">
+<h2 id="org66623b4"><span class="section-number-2">3</span> The Example</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Suppose the sorted array is <code>{1, 2, 3, 5, 5, 5, 7, 8, 9}</code>, index starts from 0.</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">value</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+<td class="org-right">7</td>
+<td class="org-right">8</td>
+<td class="org-right">9</td>
+</tr>
+
+<tr>
+<td class="org-left">index</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-right">7</td>
+<td class="org-right">8</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">target = 5</th>
+<th scope="col" class="org-right">target = 4</th>
+<th scope="col" class="org-right">target = 6</th>
+<th scope="col" class="org-right">target = 0</th>
+<th scope="col" class="org-right">target = 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>binary_search_index_max</code></td>
+<td class="org-right">5</td>
+<td class="org-right">-1</td>
+<td class="org-right">-1</td>
+<td class="org-right">-1</td>
+<td class="org-right">-1</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>binary_search_index_min</code></td>
+<td class="org-right">3</td>
+<td class="org-right">-1</td>
+<td class="org-right">-1</td>
+<td class="org-right">-1</td>
+<td class="org-right">-1</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>binary_search_range_le</code></td>
+<td class="org-right">3</td>
+<td class="org-right">3</td>
+<td class="org-right">6</td>
+<td class="org-right">0</td>
+<td class="org-right">-1</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>binary_search_range_ge</code></td>
+<td class="org-right">5</td>
+<td class="org-right">2</td>
+<td class="org-right">5</td>
+<td class="org-right">-1</td>
+<td class="org-right">8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: xiaoyao</p>
+<p class="date">Created: 2019-01-24 Thu 02:03</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

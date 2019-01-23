@@ -8,3 +8,4 @@
 + [[./shortest-path-problems.org][Shortest Path Problems]]
 + [[./dijkstra-shunting-yard.org][Dijkstra's Shunting Yard Algorithm]]
 + [[./gcd-algorithms.org][GCD Algorithms]]
++ [[./binary-search.org][Binary Search]]
