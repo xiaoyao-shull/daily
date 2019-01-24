@@ -1,0 +1,9 @@
+long_and_mnemonic_identifier
+anotherExample
+i
+bad_Style
+x__y
+x_y_
+_x_y
+Xy
+xY

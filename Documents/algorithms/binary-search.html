@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-24 Thu 02:36 -->
+<!-- 2019-01-25 Fri 02:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Binary Search</title>
@@ -67,20 +67,20 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3fe94e0">1. The Core</a>
+<li><a href="#org15593c6">1. The Core</a>
 <ul>
-<li><a href="#orgf01b164">1.1. Searching Left-Most Element</a></li>
-<li><a href="#orgf9f0594">1.2. Searching Right-Most Element</a></li>
+<li><a href="#org55ae7d2">1.1. Searching Left-Most Element</a></li>
+<li><a href="#org23c0931">1.2. Searching Right-Most Element</a></li>
 </ul>
 </li>
-<li><a href="#org10c33e3">2. The Wrapper</a></li>
-<li><a href="#org5cbe387">3. The Example</a></li>
+<li><a href="#org3880e13">2. The Wrapper</a></li>
+<li><a href="#org10d0b32">3. The Example</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3fe94e0" class="outline-2">
-<h2 id="org3fe94e0"><span class="section-number-2">1</span> The Core</h2>
+<div id="outline-container-org15593c6" class="outline-2">
+<h2 id="org15593c6"><span class="section-number-2">1</span> The Core</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>We will first consider the simplest situation: the searched value exists in the sorted array.</li>
@@ -91,8 +91,8 @@ for the JavaScript code in this tag.
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgf01b164" class="outline-3">
-<h3 id="orgf01b164"><span class="section-number-3">1.1</span> Searching Left-Most Element</h3>
+<div id="outline-container-org55ae7d2" class="outline-3">
+<h3 id="org55ae7d2"><span class="section-number-3">1.1</span> Searching Left-Most Element</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-C"><span class="linenr"> 1: </span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search_leftmost</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> * <span style="color: #7590db;">array</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">size</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">target</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
@@ -113,16 +113,16 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 <ul class="org-ul">
-<li>In line <a href="#coderef-lm-inter" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-inter');" onmouseout="CodeHighlightOff(this, 'coderef-lm-inter');">6</a>, <code>inter</code> might equal <code>lower</code>, but must be less than <code>upper</code>.</li>
-<li>In line <a href="#coderef-lm-lower" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-lower');" onmouseout="CodeHighlightOff(this, 'coderef-lm-lower');">8</a>, <code>lower</code> is updated with <code>inter + 1</code> to avoid infinite loop.</li>
-<li>In line <a href="#coderef-lm-if" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-if');" onmouseout="CodeHighlightOff(this, 'coderef-lm-if');">7</a>, <code>lower</code> is updated on strict condition (less than) rather than a relaxed one (less than or equals).</li>
-<li>In line <a href="#coderef-lm-return" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-return');" onmouseout="CodeHighlightOff(this, 'coderef-lm-return');">14</a>, <code>lower</code> is returned which guarantees that if <code>target</code> is in <code>array</code>, the minimum index is returned.</li>
+<li>In <a href="#coderef-lm-inter" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-inter');" onmouseout="CodeHighlightOff(this, 'coderef-lm-inter');">line 6</a>, after assignment, <code>inter</code> might equal <code>lower</code>, but must be less than <code>upper</code>.</li>
+<li>In <a href="#coderef-lm-lower" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-lower');" onmouseout="CodeHighlightOff(this, 'coderef-lm-lower');">line 8</a>, <code>lower</code> is updated with <code>inter + 1</code> to avoid infinite loop.</li>
+<li>In <a href="#coderef-lm-if" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-if');" onmouseout="CodeHighlightOff(this, 'coderef-lm-if');">line 7</a>, <code>lower</code> is updated with strict condition (less than) rather than a relaxed one (less than or equals).</li>
+<li>In <a href="#coderef-lm-return" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-lm-return');" onmouseout="CodeHighlightOff(this, 'coderef-lm-return');">line 14</a>, <code>lower</code> is returned which guarantees that if <code>target</code> is in <code>array</code>, the minimum index is returned.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf9f0594" class="outline-3">
-<h3 id="orgf9f0594"><span class="section-number-3">1.2</span> Searching Right-Most Element</h3>
+<div id="outline-container-org23c0931" class="outline-3">
+<h3 id="org23c0931"><span class="section-number-3">1.2</span> Searching Right-Most Element</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Try yourself to analyze the mirrow version which returns the maximum index of <code>target</code> in <code>array</code> if exists.</li>
@@ -149,8 +149,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org10c33e3" class="outline-2">
-<h2 id="org10c33e3"><span class="section-number-2">2</span> The Wrapper</h2>
+<div id="outline-container-org3880e13" class="outline-2">
+<h2 id="org3880e13"><span class="section-number-2">2</span> The Wrapper</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>What if the searched value is not found in the sorted array?</li>
@@ -188,8 +188,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org5cbe387" class="outline-2">
-<h2 id="org5cbe387"><span class="section-number-2">3</span> The Example</h2>
+<div id="outline-container-org10d0b32" class="outline-2">
+<h2 id="org10d0b32"><span class="section-number-2">3</span> The Example</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Suppose the sorted array is <code>{1, 2, 3, 5, 5, 5, 7, 8, 9}</code>, index starts from 0.</li>
@@ -295,20 +295,20 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><code>binary_search_range_le</code></td>
-<td class="org-right">3</td>
-<td class="org-right">3</td>
-<td class="org-right">6</td>
-<td class="org-right">0</td>
-<td class="org-right">-1</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>binary_search_range_ge</code></td>
 <td class="org-right">5</td>
 <td class="org-right">2</td>
 <td class="org-right">5</td>
 <td class="org-right">-1</td>
 <td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>binary_search_range_ge</code></td>
+<td class="org-right">3</td>
+<td class="org-right">3</td>
+<td class="org-right">6</td>
+<td class="org-right">0</td>
+<td class="org-right">-1</td>
 </tr>
 </tbody>
 </table>
@@ -317,7 +317,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: xiaoyao</p>
-<p class="date">Created: 2019-01-24 Thu 02:36</p>
+<p class="date">Created: 2019-01-25 Fri 02:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

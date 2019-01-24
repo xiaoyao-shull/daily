@@ -28,10 +28,10 @@
        return lower; (ref:lm-return)
      }
    #+END_SRC
-   + In line [[(lm-inter)]], =inter= might equal =lower=, but must be less than =upper=.
-   + In line [[(lm-lower)]], =lower= is updated with =inter + 1= to avoid infinite loop.
-   + In line [[(lm-if)]], =lower= is updated on strict condition (less than) rather than a relaxed one (less than or equals).
-   + In line [[(lm-return)]], =lower= is returned which guarantees that if =target= is in =array=, the minimum index is returned.
+   + In [[(lm-inter)][line (lm-inter)]], after assignment, =inter= might equal =lower=, but must be less than =upper=.
+   + In [[(lm-lower)][line (lm-lower)]], =lower= is updated with =inter + 1= to avoid infinite loop.
+   + In [[(lm-if)][line (lm-if)]], =lower= is updated with strict condition (less than) rather than a relaxed one (less than or equals).
+   + In [[(lm-return)][line (lm-return)]], =lower= is returned which guarantees that if =target= is in =array=, the minimum index is returned.
    
 ** Searching Right-Most Element
    + Try yourself to analyze the mirrow version which returns the maximum index of =target= in =array= if exists.
@@ -93,5 +93,5 @@
   |---------------------------+------------+------------+------------+------------+-------------|
   | =binary_search_index_max= |          5 |         -1 |         -1 |         -1 |          -1 |
   | =binary_search_index_min= |          3 |         -1 |         -1 |         -1 |          -1 |
-  | =binary_search_range_le=  |          3 |          3 |          6 |          0 |          -1 |
-  | =binary_search_range_ge=  |          5 |          2 |          5 |         -1 |           8 |
+  | =binary_search_range_le=  |          5 |          2 |          5 |         -1 |           8 |
+  | =binary_search_range_ge=  |          3 |          3 |          6 |          0 |          -1 |
