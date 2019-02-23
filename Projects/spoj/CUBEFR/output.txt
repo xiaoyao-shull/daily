@@ -1,0 +1,10 @@
+Case 1: 1
+Case 2: 2
+Case 3: 3
+Case 4: 4
+Case 5: 5
+Case 6: 6
+Case 7: 7
+Case 8: Not Cube Free
+Case 9: 8
+Case 10: 9
