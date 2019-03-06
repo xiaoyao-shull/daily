@@ -1,0 +1,53 @@
+\begin{tikzpicture}[scale=4]
+  %% 1. Draw help lines.
+  \draw[gray, very thin] (-1.4, -1.4) grid[step = 0.5] (1.4, 1.4);
+
+  %% 2. Draw axes.
+  \draw[->] (-1.5, 0) -- (1.5, 0) node[right] {$x$} coordinate (x axis);
+  \draw[->] (0, -1.5) -- (0, 1.5) node[above] {$y$} coordinate (y axis);
+
+  %% 3. Draw the circle.
+  \draw (0, 0) circle[radius=1];
+
+  %% 4. Draw ticks.
+  \foreach \x/\xtext in {-1, -0.5/-\frac{1}{2}, 0, 1}
+  \draw (\x, 0.05) -- (\x, -0.05) node[below left] {$\xtext$};
+
+  \foreach \y/\ytext in {1, 0.5/\frac{1}{2}, -0.5/-\frac{1}{2}, -1}
+  \draw (0.05, \y) -- (-0.05, \y) node[below left] {$\ytext$};
+
+  %% 5. Draw angle.
+  \path [fill=green!20!white, draw=green!50!black] (0, 0) -- (0.3, 0) arc[start angle=0, end angle=30, radius=0.3] -- cycle;
+  \path [draw=green!50!black] (15:0.2) node {$\alpha$};
+
+  %% 6. Draw sine line.
+  \draw[red, very thick] (30:1) -- node[left]{$\sin \alpha$} (30:1 |- x axis);
+
+  %% 7. Draw cosine line.
+  \draw[blue, very thick] (0, 0) -- node[below]{$\cos \alpha$} (30:1 |- x axis);
+
+  %% 8. Draw tangent line.
+  \path [name path=upward line] (1, 0) -- (1, 1);
+  \path [name path=sloped line] (0, 0) -- (30:1.5);
+  \draw [name intersections={of=upward line and sloped line, by=x}, very thick, orange]
+  (1, 0) -- node[right]{$\tan x \color{black}=\displaystyle\frac{\color{red}\sin \alpha}{\color{blue}\cos \alpha}$} (x);
+  \draw (0, 0) -- (x);
+
+  %% 9. Draw text.
+  \path[xshift=1.7cm] node[rounded corners, right, fill=red!10, text width=6cm, inner sep=0.3cm] {
+    The {\color{green!50!black} angle $\alpha$} is $30^\circ$ in the example ($\pi/6$ in radians).
+    The {\color{red} sine of $\alpha$}, which is the height of the red line, is
+    $$
+    {\color{red} \sin \alpha}=1 / 2\mbox{.}
+    $$
+    By the Theorem of Pythagoras we have ${\color{blue}\sin^2\alpha} + {\color{red}\cos^2\alpha}=1$.
+    Thus the length of the blue line, which is the {\color{blue} cosine of $\alpha$}, must be
+    $$
+    {\color{blue}\cos\alpha}=\sqrt{1 - 1/4}=\frac{1}{2}\sqrt3\mbox{.}
+    $$
+    This shows that {\color{orange} $\tan\alpha$}, which is the height of the orange line, is
+    $$
+    \tan x \color{black}=\displaystyle\frac{\color{red}\sin \alpha}{\color{blue}\cos \alpha}\mbox{.}
+    $$
+  };
+\end{tikzpicture}
