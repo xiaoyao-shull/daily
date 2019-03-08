@@ -1,0 +1,58 @@
+#+TITLE: Array
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
+#+begin_src C
+  #ifndef __ARRAY_H_INCLUDED__
+  #define __ARRAY_H_INCLUDED__
+  #include <stdlib.h>
+  #include <string.h>
+  #define T int
+
+  struct array_t {
+    T * data;
+    int size;
+  };
+  typedef struct array_t * array_t;
+
+  array_t array_make(int size);
+  void array_free(array_t * ptr);
+  void array_set(array_t array, int index, T value);
+  T array_get(array_t array, int index);
+  void array_clear0(array_t array);
+  void array_clear1(array_t array);
+
+  array_t array_make(int size) {
+    struct array_t * ptr = malloc(sizeof(*ptr) + sizeof(T) * size);
+    ptr->size = size;
+    ptr->data = (T *) (ptr + 1);
+    return ptr;
+  }
+
+  void array_free(array_t * ptr) {
+    free(*ptr);
+    ,*ptr = NULL;
+  }
+
+  void array_set(array_t array, int index, T value) {
+    array->data[index] = value;
+  }
+
+  T array_get(array_t array, int index) {
+    return array->data[index];
+  }
+
+  void array_clear0(array_t array) {
+    memset(array->data, 0, sizeof(T) * array->size);
+  }
+
+  void array_clear1(array_t array) {
+    memset(array->data, -1, sizeof(T) * array->size);
+  }
+
+  #undef T
+  #endif // __ARRAY_H_INCLUDED__
+#+end_src

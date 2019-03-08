@@ -1,0 +1,8 @@
+#+TITLE: Data Structures
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
++ [[./array.org][Array]]
