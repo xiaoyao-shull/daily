@@ -6,3 +6,4 @@
 #+HTML_HEAD: <script src="../../static/js/script.js"></script>
 
 + [[./array.org][Array]]
++ [[./matrix.org][Matrix]]

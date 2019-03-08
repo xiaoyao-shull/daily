@@ -1,0 +1,62 @@
+#+TITLE: Matrix
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
+#+begin_src C
+  #ifndef __MATRIX_H_INCLUDED__
+  #define __MATRIX_H_INCLUDED__
+
+  #include <stdlib.h>
+  #include <string.h>
+
+  #define T int
+
+  struct matrix_t {
+    int row_count;
+    int col_count;
+    T * data;
+  };
+  typedef struct matrix_t * matrix_t;
+
+  matrix_t matrix_make(int row_count, int col_count);
+  void  matrix_free(matrix_t * ptr);
+  void matrix_clear0(matrix_t matrix);
+  void matrix_clear1(matrix_t matrix);
+  void matrix_set(matrix_t matrix, int row, int col, int value);
+  T matrix_get(matrix_t matrix, int row, int col);
+
+  matrix_t matrix_make(int row_count, int col_count) {
+    struct matrix_t * ptr = malloc(sizeof(*ptr) + sizeof(T) * row_count * col_count);
+    ptr->row_count = row_count;
+    ptr->col_count = col_count;
+    ptr->data = (T *) (ptr + 1);
+    return ptr;
+  }
+
+  void matrix_free(matrix_t * ptr) {
+    free(*ptr);
+    ,*ptr = NULL;
+  }
+
+  void matrix_clear0(matrix_t matrix) {
+    memset(matrix->data, 0, sizeof(T) * matrix->row_count * matrix->col_count);
+  }
+
+  void matrxi_clear1(matrix_t matrix) {
+    memset(matrix->data, -1, sizeof(T) * matrix->row_count * matrix->col_count);
+  }
+
+  void matrix_set(matrix_t matrix, int row, int col, int value) {
+    matrix->data[row * matrix->col_count + col] = value;
+  }
+
+  T matrix_get(matrix_t matrix, int row, int col) {
+    return matrix->data[row * matrix->col_count + col];
+  }
+
+  #undef T
+  #endif // __MATRIX_H_INCLUDED__
+#+end_src

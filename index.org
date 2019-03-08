@@ -5,4 +5,5 @@
 #+HTML_HEAD: <script src="./static/js/jquery.js"></script>
 #+HTML_HEAD: <script src="./static/js/script.js"></script>
 
++ [[./Documents/data-structures/index.org][Data Structures]]
 + [[./Documents/algorithms/index.org][Algorithms]]
