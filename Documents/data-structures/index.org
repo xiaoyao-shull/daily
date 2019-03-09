@@ -7,4 +7,5 @@
 
 + [[./array.org][Array]]
 + [[./matrix.org][Matrix]]
++ [[./stack.org][Stack]]
 + [[./deque.org][Deque]]

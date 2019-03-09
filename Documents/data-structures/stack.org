@@ -1,0 +1,54 @@
+#+TITLE: Stack
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
+#+begin_src C
+#ifndef __STACK_H_INCLUDED__
+#define __STACK_H_INCLUDED__
+
+#include <stdlib.h>
+
+#define T int
+
+struct stack_t__ {
+  int capacity;
+  int size;
+  T * data;
+};
+typedef struct stack_t__ * stack_t__;
+
+stack_t__ stack_make(int capacity) {
+  struct stack_t__ * ptr = malloc(sizeof(*ptr) + sizeof(T) * capacity);
+  ptr->capacity = capacity;
+  ptr->size = 0;
+  ptr->data = (T *) (ptr + 1);
+  return ptr;
+}
+
+void stack_free(stack_t__ * ptr) {
+  free(*ptr);
+  *ptr = NULL;
+}
+
+void stack_push(stack_t__ stack, T value) {
+  stack->data[stack->size++] = value;
+}
+
+T stack_pop(stack_t__ stack) {
+  return stack->data[--stack->size];
+}
+
+T stack_t__op(stack_t__ stack) {
+  return stack->data[stack->size];
+}
+
+void stack_clear(stack_t__ stack) {
+  stack->size = 0;
+}
+
+#undef T
+#endif // __STACK_H_INCLUDED__
+#+end_src
