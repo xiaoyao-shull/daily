@@ -8,8 +8,10 @@
 #+begin_src C
   #ifndef __ARRAY_H_INCLUDED__
   #define __ARRAY_H_INCLUDED__
+
   #include <stdlib.h>
   #include <string.h>
+
   #define T int
 
   struct array_t {

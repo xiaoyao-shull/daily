@@ -1,0 +1,92 @@
+#+TITLE: Deque
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
+#+begin_src C
+  #ifndef __DEQUE_C_INCLUDED__
+  #define __DEQUE_C_INCLUDED__
+
+  #include <stdlib.h>
+
+  #define T int
+
+  struct deque_t {
+    int capacity;
+    int head;
+    int tail;
+    T * data;
+  };
+  typedef struct deque_t * deque_t;
+
+  deque_t deque_make(int capacity);
+  void deque_free(deque_t * ptr);
+  void deque_push_back(deque_t deque, T value);
+  void deque_push_front(deque_t deque, T value);
+  T deque_pop_front(deque_t deque);
+  T deque_pop_back(deque_t deque);
+
+  deque_t deque_make(int capacity) {
+    struct deque_t * ptr = malloc(sizeof(*ptr) + sizeof(T) * (capacity + 1));
+    ptr->head = 0;
+    ptr->tail = 0;
+    ptr->data = (T *) (ptr + 1);
+    return ptr;
+  }
+
+  void deque_free(deque_t * ptr) {
+    free(*ptr);
+    ,*ptr = NULL;
+  }
+
+  void deque_push_back(deque_t deque, T value) {
+    deque->data[deque->tail] = value;
+    deque->tail++;
+    if (deque->tail == deque->capacity + 1) {
+      deque->tail = 0;
+    }
+  }
+
+  void deque_push_front(deque_t deque, T value) {
+    deque->head--;
+    if (deque->head < 0) {
+      deque->head = (deque->capacity + 1) - 1;
+    }
+    deque->data[deque->head] = value;
+  }
+
+  T deque_pop_front(deque_t deque) {
+    T value = deque->data[deque->head];
+    deque->head++;
+    if (deque->head == deque->capacity + 1) {
+      deque->head = 0;
+    }
+    return value;
+  }
+
+  T deque_pop_back(deque_t deque) {
+    deque->tail--;
+    if (deque->tail < 0) {
+      deque->tail = (deque->capacity + 1) - 1;
+    }
+    return deque->data[deque->tail];
+  }
+
+  int deque_size(deque_t deque) {
+    if (deque->tail >= deque->head) {
+      return deque->tail - deque->head;
+
+    } else {
+      return deque->tail - deque->head + (deque->capacity + 1);
+    }
+  }
+
+  void deque_clear(deque_t deque) {
+    deque->head = deque->tail = 0;
+  }
+
+  #undef T
+  #endif // __DEQUE_C_INCLUDED__
+#+end_src
