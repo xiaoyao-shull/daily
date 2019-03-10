@@ -1,0 +1,108 @@
+#+TITLE: Binary Heap
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
+#+begin_src C
+  #ifndef __BINHEAP_H_INCLUDED__
+  #define __BINHEAP_H_INCLUDED__
+
+  #include <stdlib.h>
+
+  #define T int
+
+  typedef int (*less_t)(T, T);
+
+  struct binheap_t {
+    int capacity;
+    less_t less;
+    int size;
+    T * data;
+  };
+  typedef struct binheap_t * binheap_t;
+
+  binheap_t binheap_make(int capacity, less_t less) {
+    struct binheap_t * ptr = malloc(sizeof(*ptr) + sizeof(T) * (capacity + 1));
+    ptr->capacity = capacity;
+    ptr->less = less;
+    ptr->size = 0;
+    ptr->data = (T *) (ptr + 1);
+    return ptr;
+  }
+
+  void binheap_free(binheap_t * ptr) {
+    free(*ptr);
+    ,*ptr = NULL;
+  }
+
+  void binheap_swap(binheap_t binheap, int i, int j) {
+    T temp = binheap->data[i];
+    binheap->data[i] = binheap->data[j];
+    binheap->data[j] = temp;
+  }
+
+  void binheap_shift_up(binheap_t binheap, int index) {
+    int parent;
+    for (int parent = index / 2; parent > 0; index = parent, parent /= 2) {
+      if (binheap->less(binheap->data[index], binheap->data[parent])) {
+        binheap_swap(binheap, index, parent);
+
+      } else {
+        break;
+      }
+    }
+  }
+
+  void binheap_shift_down(binheap_t binheap, int index) {
+    int min;
+    int left;
+    int right;
+    while (1) {
+      min = index;
+      left = index * 2;
+      right = index * 2 + 1;
+      if (left <= binheap->size && binheap->less(binheap->data[left], binheap->data[min])) {
+        min = left;
+      }
+      if (right <= binheap->size && binheap->less(binheap->data[right], binheap->data[min])) {
+        min = right;
+      }
+      if (min != index) {
+        binheap_swap(binheap, min, index);
+        index = min;
+
+      } else {
+        break;
+      }
+    }
+  }
+
+  void binheap_push(binheap_t binheap, T value) {
+    binheap->data[binheap->size++] = value;
+    binheap_shift_up(binheap, binheap->size);
+  }
+
+  T binheap_pop(binheap_t binheap) {
+    T top = binheap->data[1];
+    binheap_swap(binheap, 1, binheap->size);
+    binheap->size--;
+    binheap_shift_up(binheap, binheap->size);
+    return top;
+  }
+
+  T binheap_top(binheap_t binheap) {
+    return binheap->data[1];
+  }
+
+  T binheap_size(binheap_t binheap) {
+    return binheap->size;
+  }
+
+  void binheap_clear(binheap_t binheap) {
+    binheap->size = 0;
+  }
+
+  #endif // __BINHEAP_H_INCLUDED__
+#+end_src

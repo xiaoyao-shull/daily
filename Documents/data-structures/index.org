@@ -9,3 +9,4 @@
 + [[./matrix.org][Matrix]]
 + [[./stack.org][Stack]]
 + [[./deque.org][Deque]]
++ [[./binary-heap.org][Binary Heap]]
