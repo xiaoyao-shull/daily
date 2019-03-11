@@ -1,4 +1,4 @@
-package com.kuaishou.xiaoyao;
+package com.kuaishou.xiaoyao.adhoc;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
