@@ -10,3 +10,4 @@
 + [[./stack.org][Stack]]
 + [[./deque.org][Deque]]
 + [[./binary-heap.org][Binary Heap]]
++ [[./union-find.org][Union Find]]

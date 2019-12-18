@@ -1,0 +1,69 @@
+#+TITLE: Union Find
+#+OPTIONS: html-style:nil p:t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/reset.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+#+HTML_HEAD: <script src="../../static/js/jquery.js"></script>
+#+HTML_HEAD: <script src="../../static/js/script.js"></script>
+
+#+begin_src C
+  #ifndef __UNION_FIND_H_INCLUDED__
+  #define __UNION_FIND_H_INCLUDED__
+
+  #include <stdlib.h>
+
+  struct uf_t {
+    int * parent; // 1-based
+    int * weight; // 1-based
+  };
+  typedef struct uf_t * uf_t;
+
+  uf_t uf_create(int size);
+  void uf_delete(uf_t * ptr);
+  void uf_union(uf_t uf, int i, int j);
+  int uf_root(uf_t uf, int i);
+  int uf_size(uf_t uf, int i);
+
+  uf_t uf_create(int size) {
+    int i;
+    struct uf_t * ptr = malloc(sizeof(*ptr) + sizeof(int) * (size + 1) * 2);
+    ptr->parent = (int *) (ptr + 1);
+    ptr->weight = ptr->parent + (size + 1);
+    for (i = 1; i <= size; i++) {
+      ptr->parent[i] = i;
+      ptr->weight[i] = 1;
+    }
+    return ptr;
+  }
+
+  void uf_delete(uf_t * ptr) {
+    free(*ptr);
+    ,*ptr = NULL;
+  }
+
+  int uf_root(uf_t uf, int i) {
+    while (i != uf->parent[i]) {
+      uf->parent[i] = uf->parent[uf->parent[i]];
+      i = uf->parent[i];
+    }
+    return i;
+  }
+
+  int uf_size(uf_t uf, int i) {
+    return uf->weight[uf_root(uf, i)];
+  }
+
+  void uf_union(uf_t uf, int i, int j) {
+    i = uf_root(uf, i);
+    j = uf_root(uf, j);
+    if (uf_size(uf, i) > uf_size(uf, j)) {
+      uf->parent[j] = i;
+      uf->weight[i] += uf->weight[j];
+
+    } else {
+      uf->parent[i] = j;
+      uf->weight[j] += uf->weight[i];
+    }
+  }
+
+  #endif // __UNION_FIND_H_INCLUDED__
+#+end_src
